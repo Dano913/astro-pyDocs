@@ -12,8 +12,11 @@ export default defineConfig({
 				{
 					label: 'Guides',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Introducción a Python', slug: 'guides/01-introduccion' },
+						{ label: 'Variables en Python', slug: 'guides/02-variables' },
+						{ label: 'Tipos de Datos y Funciones', slug: 'guides/03-tipos-datos' },
+						{ label: 'Operadores en Python', slug: 'guides/04-operadores' },
+						{ label: 'Indexación de Strings', slug: 'guides/05-indexacion-strings' },
 					],
 				},
 				{

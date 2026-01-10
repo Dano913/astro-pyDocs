@@ -1,0 +1,70 @@
+---
+title: "Variables en Python"
+---
+## Introducción a las Variables en Python usando Jupyter Notebook en VSCode
+---
+Vamos a comenzar trabajando con Python desde Visual Studio Code (VSCode), lo que requiere instalar dos extensiones esenciales:
+
+1️⃣ **Python:** Para ejecutar código Python dentro del editor.  
+2️⃣ **Jupyter Notebook:** Para trabajar con archivos `.ipynb` interactivos, que permiten ejecutar celdas de código de forma secuencial y ver los resultados inmediatamente.
+
+## Instalación de Extensiones en VSCode
+---
+Abre VSCode y dirígete a la pestaña de extensiones (icono de cuadrados en la barra lateral izquierda).  
+
+Busca e instala las extensiones:
+
+- **Python** (por Microsoft)  
+- **Jupyter Notebook** (por Microsoft)
+
+## Crear un Archivo Jupyter Notebook
+---
+- En VSCode, selecciona `File > New File` y guarda el archivo con extensión `.ipynb` (por ejemplo, `variables_python.ipynb`).  
+- Abre el archivo y notarás que ahora el editor está preparado para trabajar con celdas de Jupyter Notebook.
+
+## Ejecución de Celdas en Jupyter Notebook
+---
+Para ejecutar una celda:
+
+- `Ctrl + Enter` → Ejecuta la celda actual  
+- `Shift + Enter` → Ejecuta la celda y pasa a la siguiente  
+
+Cada celda puede contener una porción de código, y verás los resultados debajo de la celda.
+
+## Variables
+---
+Una variable es uno de los elementos más importantes de la programación.  
+
+Podemos entenderlos como cajas vacías donde vamos a almacenar valores de muchos tipos, como números, caracteres, listas, etc. Las variables siempre se definen con **nombre = contenido**. Veamos un ejemplo.
+
+En este caso, estaríamos generando una variable cuyo valor es 3, lo que nos permitirá realizar ciertas operaciones con ella.
+
+```python
+# Definimos la variable con el nombre variable_numerica y le asignamos un valor
+variable_numerica = 3
+```
+
+Es importante tener en cuenta que si declaramos una variable con el mismo nombre que una ya definida, sobreescribiremos su valor.
+
+En este caso el valor de la variable será 200 ya que ha sido el último valor que le hemos asignado a la variable **numero_1**.
+
+```python
+# definimos una variable con el nombre numero_1 cuyo valor es 100
+numero_1 = 100
+
+# definimos otra variable con el mismo nombre pero distinto valor, en este caso 200
+numero_1 = 200 
+```
+
+Python tiene una serie de palabras reservadas, es decir, palabras que no podremos usar como nombre de nuestras variables ya que son palabras encargadas de ciertas funcionalidades dentro del propio lenguaje.
+
+Aparecerán en un color diferente dentro de nuestro código, como por ejemplo **int** que se refiere a la palabra *integer*, o **True** y **False**.
+
+
+
+
+
+
+Trabajar con variables en Python desde Jupyter Notebook en VSCode te permite escribir código de manera interactiva y visualizar rápidamente los resultados. Además, puedes ir modificando el código en celdas separadas sin tener que reescribir todo el programa.
+
+Recuerda siempre **guardar tu trabajo** frecuentemente, utilizando Ctrl + S o desde el menú File > Save.

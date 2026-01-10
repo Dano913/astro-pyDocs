@@ -1,0 +1,110 @@
+---
+title: "Tipos de Datos y Funciones Incorporadas"
+---
+
+Python nos proporciona una variedad de operadores para realizar operaciones matemáticas, comparaciones lógicas y manipulación de tipos de datos.
+
+### Operadores Aritméticos
+---
+
+| Operador | Descripción | Ejemplo |
+| :--- | :--- | :--- |
+| `+` | **Suma** dos valores. | `5 + 2` (7) |
+| `-` | **Resta** un valor de otro. | `5 - 2` (3) |
+| `*` | **Multiplicación** de dos valores. | `5 * 2` (10) |
+| `/` | **División** y obtención de un decimal (*float*). | `5 / 2` (2.5) |
+| `//` | **División entera** que devuelve solo la parte entera. | `5 // 2` (2) |
+| `%` | **Módulo** que devuelve el residuo de la división. | `5 % 2` (1) |
+| `**` | **Potencia** que eleva un número al exponente de otro. | `5 ** 2` (25) |
+
+### Concatenación de Cadenas
+---
+El operador `+` también sirve para unir textos:
+
+```python
+saludo = "Hola, "
+nombre = "Ana"
+mensaje = saludo + nombre
+print(mensaje)  # Salida: Hola, Ana
+```
+
+### Operadores de Comparación
+---
+Los **operadores de comparación** nos permiten comparar dos valores y devolver un resultado booleano (True o False). Estos operadores son fundamentales para tomar decisiones en el código, especialmente cuando se usan en condicionales o bucles.
+
+Aquí están los más comunes:
+
+- **Igualdad ( = = )**: Compara si dos valores son iguales.
+
+- **Desigualdad ( ! = )**: Compara si dos valores son diferentes.
+
+- **Mayor que ( > )**: Compara si el valor de la izquierda es mayor que el de la derecha.
+
+- **Menor que ( < )**: Compara si el valor de la izquierda es menor que el de la derecha.
+
+- **Mayor o igual que ( > = )**: Compara si el valor de la izquierda es mayor o igual al de la derecha.
+
+- **Menor o igual que ( < = )**: Compara si el valor de la izquierda es menor o igual al de la derecha.
+
+### Operadores Lógicos: and y or
+---
+Los **operadores lógicos** en Python nos permiten combinar múltiples expresiones de comparación y obtener un resultado booleano (True o False). Los más comunes son and y or, que permiten realizar evaluaciones compuestas de varias condiciones.
+
+- **Operador and**: El operador **and** devuelve True si **ambas** condiciones son verdaderas. Si alguna de las condiciones es False, el resultado será False.
+
+- **Operador or**: El operador or devuelve True si **al menos una** de las condiciones es verdadera. Solo devuelve False si **todas** las condiciones son falsas.
+
+```python
+edad = 20
+es_estudiante = True
+tiene_licencia = False
+
+# Se puede conducir si tiene más de 18 años Y tiene licencia (and)
+puede_conducir = (edad > 18) and tiene_licencia
+print(puede_conducir)  # Resultado: False
+
+# Se considera "joven" si tiene menos de 25 años O si es estudiante (or)
+es_joven = (edad < 25) or es_estudiante
+print(es_joven)  # Resultado: True
+```
+
+### 4. Operadores de Asignación Combinada
+---
+En Python, podemos usar operadores de asignación combinados para realizar operaciones aritméticas de forma más concisa.
+
+- **+=**: Suma el valor a la variable y asigna el resultado a la misma variable.
+
+- **-=**: Resta el valor y asigna el resultado.
+
+- ***=**: Multiplica el valor y asigna el resultado.
+
+- **/=**: Divide el valor y asigna el resultado.
+
+- **//=**: Realiza una división entera y asigna el resultado.
+
+- **%=**: Calcula el módulo y asigna el resultado.
+
+- <b>**=</b>: Eleva a la potencia y asigna el resultado.
+
+### Conversión de Datos
+---
+Es común que tengamos que **convertir datos** de un tipo a otro en Python, especialmente entre tipos numéricos y cadenas. Para esto, usamos las funciones incorporadas:
+
+- **int()**: Convierte a entero.
+
+- **float()**: Convierte a número flotante.
+
+- **str()**: Convierte a cadena de texto.
+
+- **bool()**: Convierte un número a booleano (0 será False y cualquier otro entero True) o una cadena de texto a booleano (Si la cadena está vacía devuelve False)
+
+```python
+numero = int("5")  # Convierte la cadena "5" en el número 5
+decimal = float("3.14")  # Convierte la cadena "3.14" en el número 3.14
+texto = str(10)  # Convierte el número 10 en la cadena "10"
+booleano = bool(100) #Convierte el número 100 en el booleano True
+```
+
+En resumen, hemos cubierto los pilares esenciales del lenguaje Python que son clave para comenzar a desarrollar programas y scripts. Con estos conceptos, podemos escribir código eficiente, interactuar con los usuarios y manipular datos de manera flexible.
+
+A medida que avancemos, estos fundamentos serán la base para explorar estructuras de control, funciones, y otras características avanzadas del lenguaje.

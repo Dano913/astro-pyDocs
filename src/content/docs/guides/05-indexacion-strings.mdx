@@ -1,0 +1,105 @@
+---
+title: Indexación de Strings
+---
+
+Lo primero hay que recordar que las cadenas de caracteres o *strings* son un tipo de dato que tienen la palabra reservada **`str`** en Python. Se pueden definir con comillas simples `' '` o dobles `" "` y van a tener unas funciones y unos métodos específicos para poder realizar cambios en ellas como ponerlos en mayúsculas/minúsculas por ejemplo.
+
+Los *strings* son **iterables**, lo que implica que podemos acceder individualmente a cada uno de sus caracteres a través de la posición que ocupa dentro del *string*. A la posición de cada carácter se le llama **índice** y es un número único para cada uno, comenzando en 0. Este proceso de acceder a los caracteres individuales se conoce como **indexación**.
+
+
+## Indexación básica
+---
+La sintaxis para acceder a un elemento concreto a través de su índice se hace mediante corchetes `[]`, con el índice del elemento dentro de ellos:
+
+```python
+# definimos una variable de tipo string
+variable_string = "Me encanta la programación" 
+
+# accedemos al primer elemento, el elemento 0, usando corchetes[] y lo guardamos en una nueva variable
+primer_elemento = variable_string[0]
+
+# usamos la función print() para ver el resultado por terminal
+print(f"El primer elemento de nuestro string es {primer_elemento}")
+# Output esperado: El primer elemento de nuestro string es M
+```
+
+## Características de la indexación
+---
+- El índice puede ser positivo o negativo. El positivo empieza de izquierda a derecha y el negativo lo hace a la inversa, de derecha a izquierda.
+
+- El índice positivo empieza en 0. Lo usamos para acceder al primer carácter de una cadena.
+
+- El índice negativo comienza en -1. Lo usamos para acceder al último carácter de una cadena.
+
+En el string "Python" el carácter “P” tiene índice positivo 0 y negativo -6. De la misma manera vemos que el carácter “n” tienen índice positivo 5 y negativo -1.
+
+```python
+# Definimos una variable con la palabra "Python" como valor para ver el ejemplo a través de código
+var_python = "Python"
+
+# Accedemos a los índices positivos
+primer_indice_pstv = var_python[0]
+ultimo_indice_pstv = var_python[5]
+
+# Accedemos a los índices negativos
+primer_indice_ngtv = var_python[-1]
+ultimo_indice_ngtv = var_python[-6]
+
+# Usamos la función print() para ver el resultado por terminal
+print(f"El primer elemento accediendo por índices positivos es {primer_indice_pstv}")
+print(f"El último elemento accediendo por índices positivos es {ultimo_indice_pstv}")
+print(f"El primer elemento accediendo por índices negativos es {ultimo_indice_ngtv}")
+print(f"El último elemento accediendo por índices negativos es {primer_indice_ngtv}")
+
+# Output esperado:
+# El primer elemento accediendo por índices positivos es P
+# El último elemento accediendo por índices positivos es n
+# El primer elemento accediendo por índices negativos es P
+# El último elemento accediendo por índices negativos es n
+```
+
+## Rangos de indexación
+---
+Podemos extraer partes de una cadena utilizando **rangos de indexación**. La sintaxis básica para esto es:
+
+**cadena[start:stop:step]**
+
+- start: Índice desde donde queremos comenzar el recorte (inclusive).
+
+- stop: Índice donde terminamos (no inclusivo).
+
+- step: Tamaño del salto entre caracteres.
+
+## Veamos algunos ejemplos...
+---
+Extraer un rango de caracteres
+
+```python
+texto = "Python"
+subcadena = texto[0:4]  # Desde el índice 0 hasta el 3
+print(subcadena)  # Salida: 'Pyth'
+```
+
+Omitir el inicio o el final: Si omitimos el valor de start o stop, Python utilizará el valor por defecto (el inicio o el final de la cadena, respectivamente).
+
+```python
+texto = "Python"
+print(texto[:3])   # Desde el inicio hasta el índice 2: 'Pyt'
+print(texto[3:])   # Desde el índice 3 hasta el final: 'hon'
+```
+
+Utilizar el parámetro step: Podemos utilizar step para indicar cómo saltar entre los caracteres.
+
+```python
+texto = "Python"
+print(texto[0:6:2])  # Salto de 2 en 2: 'Pto'
+```
+
+Invertir una cadena: Utilizando un step negativo, podemos invertir la cadena.
+
+```python
+texto = "Python"
+print(texto[::-1])  # Salida: 'nohtyP'
+```
+
+La indexación y los rangos de indexación nos permiten trabajar de manera flexible con cadenas de texto, extrayendo caracteres específicos o subcadenas, e incluso invirtiendo o saltando caracteres en una secuencia.

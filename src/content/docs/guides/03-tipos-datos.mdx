@@ -1,0 +1,179 @@
+---
+title: "Tipos de Datos y Funciones Incorporadas"
+---
+
+En Python, trabajar con **tipos de datos** es esencial, ya que definen la naturaleza de los valores que manejamos. 
+
+Además, Python proporciona una serie de **funciones incorporadas** que nos facilitan la manipulación y el procesamiento de estos datos.
+
+## Tipos de Datos en Python
+---
+Al igual que en la mayoría de lenguajes de programación, en Python podemos encontrar diferentes tipos de datos que podemos usar de distintas formas, como almacenarlos en variables o realizar operaciones matemáticas.
+
+### 1. Números
+---
+* **Enteros (`int`):** Representan números enteros sin parte decimal.
+    ```python
+    # Definimos una variable con el nombre numero_negativo
+    numero_negativo = -6
+
+    # numero_negativo será de tipo int
+    int() 
+    ```
+
+* **Decimales (`float`):** Representan números con parte decimal.
+    ```python
+    # Definimos dos nuevas variables
+    numero_decimal_1 = 2.8
+    numero_decimal_2 = .2  # Esta variable tiene el valor 0.2
+
+    # Ambas variables serán de tipo float
+    float()
+    ```
+
+* **Complejos (`complex`):** Representan números con parte real e imaginaria.
+    ```python
+    z = 2 + 3j 
+    ```
+
+### 2. Cadenas de Texto (`str`)
+---
+Son secuencias de caracteres, delimitadas por comillas simples o dobles:
+
+```python
+# Definimos 4 nuevas varaibles
+cadena_1 = 'L'
+cadena_2 = 'Buenos días'
+cadena_3 = "Eduardo"
+cadena_4 = "Buenas noches"
+
+# Las variables anteriores serán de tipo string
+str() 
+```
+
+### 3. Booleanos (bool)
+---
+Los tipos de datos booleanos son los que solo pueden tener dos valores, verdadero y falso. Las **palabras reservadas** para estos dos casos en Python son **True** y **False**. Este tipo de datos tendrán mucho uso en las expresiones condicionales y en los bucles que veremos en próximas lecciones. En Python el tipo de dato booleano tiene la palabra reservada **bool**:
+
+```python
+resultado_1 = True
+resultado_2 = False
+
+# Las variables anteriores serán de tipo bool
+bool()
+```
+
+### 4. None
+---
+Se usa para definir valores nulos y es una palabra reservada dentro de Python: **None**. Es una herramienta útil para manejar casos en los que necesitas indicar explícitamente que una variable no tiene un valor asignado.
+
+```python
+variable_sin_valor = None
+```
+
+### 📌 Importante
+---
+- **None** no es lo mismo que 0.
+
+- **None** no es lo mismo que **False**.
+
+- **None** no es una cadena de caracteres vacía.
+
+### Funciones Incorporadas
+---
+Ya hemos aprendido a definir variables y los tipos de datos, ¿pero como podemos trabajar con nuestras variables? Vamos a aprender tres funciones incorporadas en Python: **print()**, **type()**, **len()** e **input()**.
+
+Las funciones incorporadas en Python son funciones que están disponibles para su uso inmediato en cualquier programa Python sin necesidad de importar ningún módulo adicional. Estas funciones proporcionan funcionalidades comunes y esenciales que se utilizan con frecuencia en la programación diaria.
+
+### print()
+---
+La función **print()** nos permite ver el valor de una variable a través de la terminal. Para usarla necesitamos poner el nombre de la variable que queremos ver por terminal entre los paréntesis de la función **print()**. A esta especificación dentro del paréntesis se le llama **argumento**.
+
+```python
+# definimos la variable cadena_print que contiene una frase, es decir, es un string
+cadena_print = "Me encanta la programación"
+
+# llamamos a la función print() con el nombre de la variable entre paréntesis
+print(cadena_print)
+# Output: Me encanta la programación
+```
+
+Dentro de la función **print()**, existen varias formas de agregar texto junto con el valor de una variable para poder ver con más claridad el output.
+
+- **Utilizando el método de formato (f-string)**: Permite incluir variables directamente dentro de una cadena de texto precedida por una 'f', y usar llaves {} para insertar valores de variables:
+
+```python
+# Definimos una variable
+nombre = "Juan"
+
+# Llamamos a la función print() con el nombre de la variable entre paréntesis
+print(f"Hola, me llamo {nombre}")
+# Output esperado: Hola, me llamo Juan
+```
+
+- **Separando elementos por comas**: Podemos separar elementos dentro de la función print() utilizando comas. Esto imprimirá cada elemento separado por un espacio:
+
+```python
+# Definimos una variable
+edad = 25
+
+# LLamamos a la función print() con el nombre de la variable entre paréntesis
+print("Tengo", edad, "años.")
+# Output esperado: Tengo 25 años.
+```
+### type()
+---
+La función **type()** nos permite ver el tipo de dato de el valor de una variable. Al igual que la función **print()** ponemos entre los paréntesis el nombre de la variable de la que queremos conocer el tipo de valor que tiene:
+
+```python
+# Definimos 2 variables
+tipo_cadena = "Me encanta la programación"
+tipo_numero = 3
+
+# Llamamos a la función type()
+type(tipo_cadena)
+type(tipo_numero)
+
+# Llamamos a la función print() para verlo a través de terminal
+print(f"El tipo de dato de la primera variable es: {type(tipo_cadena)}")
+print(f"El tipo de dato de la segunda variable es: {type(tipo_numero)}")
+# Output esperado:
+# El tipo de dato de la primera variable es: <class 'str'>
+# El tipo de dato de la segunda variable es: <class 'int'>
+```
+
+### len()
+---
+La función **len()** nos permite saber la longitud del valor de una variable cuyo valor sea un cadena de caracteres o algunas estructuras de datos que veremos a partir de la lección 4. Al igual que con las funciones **print()** y **type()** ponemos entre los paréntesis el nombre de la variable de la que queremos conocer la longitud:
+
+```python
+# Definimos dos variables
+longitud_cadena = "Estoy aprendiendo a programar"
+longitud_numero = 4.2
+
+# Llamamos a la función len()
+len(longitud_cadena)
+len(longitud_numero)
+
+# Llamamos a la función print() para verlo a través de terminal
+print(f"La longitud de la variable longitud_cadena es: {len(longitud_cadena)}")
+print(f"La longitud d ela variable longitud_numero es: {len(longitud_numero)}")
+# Output esperado:
+# La longitud de la variable longitud_cadena es: 29
+# TypeError: object of type 'float' has no len()
+```
+
+### input()
+---
+La función **input()** nos permite tomar un valor de entrada por parte del usuario desde la línea de comandos. La función **input()** devuelve una cadena de caracteres que representa lo que el usuario ha ingresado a través de terminal
+
+```python
+# Definimos una variable que al ejecutar pida al usuario el input() de su nombre
+valor_usuario = input(f"Por favor indica tu nombre: ")
+
+# Comprobamos a través de la función print() el valor ingresado y el tipo:
+print(f"El input del usuario ha sido: {valor_usuario}")
+print(f"El tipo de dato ingresado por el usuario es: {type(valor_usuario)}")
+```
+
+Entender los tipos de datos y las funciones incorporadas en Python nos permite escribir código más eficiente y claro. Las funciones integradas nos ayudan a manipular datos de manera rápida y sencilla, maximizando el poder de Python para trabajar con cualquier tipo de información.
