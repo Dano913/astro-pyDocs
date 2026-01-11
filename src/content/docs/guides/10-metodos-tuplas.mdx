@@ -1,0 +1,75 @@
+---
+title: Tuplas, definición e indexación
+---
+
+Aunque las tuplas en Python son inmutables, tienen algunos métodos que nos permiten interactuar con ellas para obtener información sobre su contenido.
+
+A continuación, presentamos los métodos más comunes para trabajar con tuplas.
+
+1️⃣ index()
+
+2️⃣ count()
+
+3️⃣ min()
+
+4️⃣ max()
+
+5️⃣ len()
+
+6️⃣ type()
+
+## 1️⃣ index()
+---
+El método index() se utiliza para encontrar la posición del primer elemento con un valor específico en la tupla. Si el elemento no existe, genera un error.
+
+```python
+mi_tupla = (10, 20, 30, 40)
+print(mi_tupla.index(30))  # Salida: 2
+```
+
+## 2️⃣ count()
+---
+El método count() devuelve el número de veces que un valor específico aparece en la tupla.
+
+```python
+mi_tupla = (10, 20, 20, 30, 20)
+print(mi_tupla.count(20))  # Salida: 3 
+```
+
+## 3️⃣ min()
+---
+El método min() devuelve el valor mínimo de los elementos en la tupla.
+
+```python
+mi_tupla = (10, 20, 30, 40)
+print(min(mi_tupla))  # Salida: 10
+```
+
+## 4️⃣ max()
+---
+El método max() devuelve el valor máximo de los elementos en la tupla.
+
+```python
+mi_tupla = (10, 20, 30, 40)
+print(max(mi_tupla))  # Salida: 40
+```
+
+## 5️⃣ len()
+---
+El método len() devuelve el número de elementos presentes en la tupla.
+
+```python
+mi_tupla = (10, 20, 30)
+print(len(mi_tupla))  # Salida: 3
+```
+
+## 6️⃣ type()
+---
+El método type() devuelve el tipo de dato de un objeto, en este caso, una tupla.
+
+```python
+mi_tupla = (10, 20, 30)
+print(type(mi_tupla))  # Salida: <class 'tuple'>
+```
+
+Aunque las tuplas no se pueden modificar, podemos obtener mucha información sobre ellas utilizando métodos como index(), count(), min(), max(), len(), y type(). Estos métodos nos permiten trabajar con las tuplas de manera eficiente sin alterar su estructura.

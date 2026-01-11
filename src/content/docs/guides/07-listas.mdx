@@ -1,0 +1,90 @@
+---
+title: Listas, definición e indexación
+---
+
+Las **listas** en Python son estructuras de datos que nos permiten almacenar múltiples elementos dentro de una sola variable.
+
+Estos elementos pueden ser de distintos tipos, como números, strings u otras listas.
+
+Las listas en Python son mutables, lo que significa que podemos modificar sus elementos después de haberlas creado.
+
+## Creación de listas
+---
+Podemos crear una lista utilizando corchetes [] y separando sus elementos por comas.
+
+```python
+mi_lista = [1, 2, 3, "Python", True]
+```
+
+## Lista vacía
+---
+Una lista vacía no contiene elementos, pero podemos agregarle datos posteriormente. Se crea de la siguiente forma
+
+```python
+lista_vacia = []
+```
+
+## Longitud de una lista
+---
+Para saber cuántos elementos tiene una lista, usamos la función incorporada len()
+
+```python
+mi_lista = [1, 2, 3, "Python", True]
+print(len(mi_lista))  # Salida: 5
+```
+
+## Listas anidadas
+---
+Podemos incluir listas dentro de otras listas, creando así estructuras anidadas
+
+```python
+lista_anidada = [1, [2, 3], [4, [5, 6]]]
+```
+
+## Generar lista de un string
+---
+Podemos convertir un string en una lista, donde cada carácter del string será un elemento de la lista
+
+```python
+cadena = "Python"
+lista = list(cadena)
+print(lista)  # Salida: ['P', 'y', 't', 'h', 'o', 'n']
+```
+
+## Indexación de listas
+---
+La indexación nos permite acceder a elementos específicos de una lista utilizando su posición (índice). Los índices comienzan en 0
+
+```python
+mi_lista = [1, 2, 3, "Python", True]
+print(mi_lista[3])  # Salida: 'Python'
+```
+
+## Indexación en lista con rango
+---
+Podemos obtener una sublista utilizando un rango de índices con la notación [start:stop:step]. Este rango incluye el índice start pero excluye el stop
+
+```python
+mi_lista = [1, 2, 3, 4, 5, 6]
+print(mi_lista[1:4])  # Salida: [2, 3, 4]
+```
+
+Si no indicamos start o stop, se consideran los extremos de la lista.
+
+```python
+print(mi_lista[:4])  # Desde el inicio hasta el índice 3: [1, 2, 3, 4]
+print(mi_lista[2:])  # Desde el índice 2 hasta el final: [3, 4, 5, 6]
+```
+
+## Indexación en listas anidadas
+---
+Para acceder a elementos de una lista anidada, utilizamos múltiples índices
+
+```python
+lista_anidada = [1, [2, 3], [4, [5, 6]]]
+print(lista_anidada[2][1][0])  # Salida: 5
+```
+
+Las listas son una de las estructuras de datos más versátiles de Python.
+
+Nos permiten almacenar múltiples elementos, acceder a ellos mediante su índice, y manipular tanto listas simples como anidadas para construir soluciones complejas.

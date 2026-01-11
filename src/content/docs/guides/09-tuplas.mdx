@@ -1,0 +1,62 @@
+---
+title: Tuplas, definición e indexación
+---
+
+Las **tuplas** son estructuras de datos en Python que almacenan una secuencia de elementos de cualquier tipo, similar a las listas.
+
+Sin embargo, las tuplas son **inmutables**, lo que significa que no podemos modificar sus elementos una vez creadas. Esto las hace útiles cuando no se desea que los datos cambien a lo largo del programa.
+
+## Definición de una tupla
+---
+Se define una tupla usando paréntesis () y separando los elementos por comas.
+
+```python
+mi_tupla = (1, 2, 3, 4)
+```
+
+## Tupla de un solo elemento
+---
+Para definir una tupla con un solo elemento, se debe añadir una coma después del valor, de lo contrario se considerará un valor normal.
+
+```python
+tupla_un_elemento = (5,)
+```
+
+## Indexación en tuplas
+---
+Al igual que con las listas, podemos acceder a los elementos de una tupla utilizando indexación. La **indexación** comienza desde 0 para el primer elemento y también se permite la indexación negativa.
+
+```python
+mi_tupla = (10, 20, 30, 40)
+
+# Acceso al primer elemento
+print(mi_tupla[0])  # Salida: 10
+
+# Acceso al último elemento
+print(mi_tupla[-1])  # Salida: 40
+```
+
+## Modificación de tuplas
+---
+Las tuplas son **inmutables**, por lo que no se puede modificar, añadir o eliminar elementos individuales una vez que la tupla ha sido creada.
+
+Sin embargo, es posible convertir una tupla en una lista, modificarla y luego volver a convertirla en tupla si se necesita cambiar su contenido.
+
+```python
+mi_tupla = (1, 2, 3, 4)
+
+# Convertir la tupla en lista
+lista = list(mi_tupla)
+
+# Modificar la lista
+lista.append(5)
+
+# Convertir de nuevo en tupla
+mi_tupla = tuple(lista)
+
+print(mi_tupla)  # Salida: (1, 2, 3, 4, 5)
+```
+
+Las tuplas son útiles cuando necesitamos una estructura de datos que sea inmutable, es decir, que no pueda ser modificada después de su creación.
+
+Aunque no permiten modificar sus elementos directamente, podemos realizar cambios indirectos convirtiendo la tupla en lista y volviéndola a tupla después de hacer las modificaciones necesarias

@@ -17,6 +17,11 @@ export default defineConfig({
 						{ label: 'Tipos de Datos y Funciones', slug: 'guides/03-tipos-datos' },
 						{ label: 'Operadores en Python', slug: 'guides/04-operadores' },
 						{ label: 'Indexación de Strings', slug: 'guides/05-indexacion-strings' },
+						{ label: 'Métodos de string', slug: 'guides/06-metodos-string' },
+						{ label: 'Listas, definición e indexación', slug: 'guides/07-listas' },
+						{ label: 'Métodos de listas', slug: 'guides/08-metodos-listas' },
+						{ label: 'Tuplas, definición e indexación', slug: 'guides/09-tuplas' },
+						{ label: 'Métodos de tuplas', slug: 'guides/10-metodos-tuplas' },
 					],
 				},
 				{

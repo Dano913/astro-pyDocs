@@ -1,0 +1,126 @@
+---
+title: Métodos de Strings
+---
+
+Los **métodos de string** en Python son funciones que podemos utilizar para realizar diversas operaciones sobre cadenas de texto.
+
+Estos métodos se aplican directamente sobre el objeto de tipo string, y en muchos casos, devuelven una nueva cadena con la transformación realizada (las cadenas en Python son inmutables, lo que significa que no pueden modificarse directamente).
+
+## Sintaxis general
+---
+La sintaxis general para llamar a un método sobre un string es la siguiente:
+
+```python
+cadena.metodo(argumentos)
+```
+
+Donde:
+
+- **cadena** es el string sobre el que se va a aplicar el método.
+
+- **método** es la operación que deseamos realizar.
+
+- **argumentos** son los parámetros adicionales que el método pueda requerir.
+
+## Métodos comunes de strings
+---
+1️⃣ lower()
+
+2️⃣ upper()
+
+3️⃣ title()
+
+4️⃣ capitalize()
+
+5️⃣ strip()
+
+6️⃣ replace(old, new)
+
+7️⃣ find(substring)
+
+8️⃣ index(substring)
+
+9️⃣ join(iterable)
+
+## 1️⃣ lower()
+---
+Convierte todos los caracteres de una cadena a minúsculas
+```python
+texto = "PYTHON"
+print(texto.lower())  # Salida: 'python'
+```
+
+## 2️⃣ upper()
+---
+Convierte todos los caracteres de una cadena a mayúsculas
+```python
+texto = "python"
+print(texto.upper())  # Salida: 'PYTHON'
+```
+
+## 3️⃣ title()
+---
+Convierte la primera letra de cada palabra en mayúscula
+
+```python
+texto = "bienvenidos a python"
+print(texto.title())  # Salida: 'Bienvenidos A Python'
+```
+
+## 4️⃣ capitalize()
+---
+Convierte solo el primer carácter de la cadena en mayúscula y el resto en minúscula
+
+```python
+texto = "python es genial"
+print(texto.capitalize())  # Salida: 'Python es genial'
+```
+
+## 5️⃣ strip()
+---
+Elimina los espacios en blanco (u otros caracteres) del inicio y el final de la cadena
+
+```python
+texto = "   Hola, Mundo!   "
+print(texto.strip())  # Salida: 'Hola, Mundo!'
+```
+
+## 6️⃣ replace(old, new)
+---
+Reemplaza todas las ocurrencias de un substring por otro
+
+```python
+texto = "Hola, Mundo!"
+print(texto.replace("Mundo", "Python"))  # Salida: 'Hola, Python!'
+```
+
+## 7️⃣ find(substring)
+---
+Devuelve el índice de la primera aparición de substring en la cadena. Si no se encuentra, devuelve -1
+
+```python
+texto = "Hola, Mundo!"
+print(texto.find("Mundo"))  # Salida: 6
+```
+
+## 8️⃣ index(substring)
+---
+Similar a find(), pero si no se encuentra la substring, lanza una excepción en lugar de devolver -1
+
+```python
+texto = "Hola, Mundo!"
+print(texto.index("Mundo"))  # Salida: 6
+```
+
+## 9️⃣ join(iterable)
+---
+Une los elementos de un iterable (como una lista) en una sola cadena, utilizando la cadena sobre la que se llama el método como separador
+
+```python
+lista = ["Python", "es", "genial"]
+print(" ".join(lista))  # Salida: 'Python es genial'
+```
+
+Los métodos de string nos ofrecen una gran variedad de operaciones para modificar, buscar, y manipular cadenas de texto de manera eficiente y flexible.
+
+Estos métodos facilitan la limpieza y el procesamiento de datos textuales en Python.
