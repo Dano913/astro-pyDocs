@@ -1,0 +1,98 @@
+---
+title: "Estructuras de iteración: Bucles for en diccionarios"
+---
+
+No podemos iterar directamente con un bucle for un diccionario, ya que no es una estructura de datos iterable.
+
+Sin embargo, los diccionarios funcionan con pares de **clave-valor** que podemos tratar como items por lo que podemos iterar usando distintas opciones
+
+## Bucle for por las claves de un diccionario
+---
+Vamos a ver un ejemplo en el cual vamos a utilizar un bucle for para iterar por cada clave de un diccionario
+
+```python
+# tenemos este diccionario cuyas claves son los números y el nombre del mes es el valor
+dictio_meses = {
+    1: 'enero', 
+    2: 'febrero',
+    3: 'marzo',
+    4: 'abril',
+    5: 'mayo',
+    6: 'junio',
+    7: 'julio',
+    8: 'agosto',
+    9: 'septiembre',
+    10: 'octubre',
+    11: 'noviembre',
+    12: 'diciembre'
+}
+
+# Iteramos por las claves del diccionario
+for clave in dictio_meses.keys():
+		# mostramos por terminal las clave del diccionario
+    print(f'Número del mes', clave)
+
+# Iteramos por los valores del diccionario
+for valor in dictio_meses.values():
+		# mostramos por terminal los valores del diccionario
+    print(f'Nombre del mes', valor)
+
+# Iteramos por los pares clave-valor usando items()
+for clave, valor in dictio_meses.items():
+	 # mostramos por terminal los valores del diccionario y después la clave
+	 print(f'Mes {valor}: {clave}')
+```
+
+## Bucle for por los valores de un diccionario
+---
+Muy similar al ejemplo anterior, vamos a ver como hacer un bucle for por los valores de un diccionario
+
+```python
+# tenemos este diccionario cuyas claves son los números y el nombre del mes es el valor
+dictio_meses = {
+    1: 'enero',
+    2: 'febrero',
+    3: 'marzo',
+    4: 'abril',
+    5: 'mayo',
+    6: 'junio',
+    7: 'julio',
+    8: 'agosto',
+    9: 'septiembre',
+    10: 'octubre',
+    11: 'noviembre',
+    12: 'diciembre'
+}
+# Iteramos por los valores del diccionario
+for valor in dictio_meses.values():
+    # mostramos por terminal los valores del diccionario
+    print(f'Nombre del mes: {valor}')
+```
+
+## Bucle for por los items de un diccionario
+---
+También podemos realizar el bucle for por cada clave-valor, usando el método items()
+
+```python
+# tenemos este diccionario cuyas claves son los números y el nombre del mes es el valor
+dictio_meses = {
+    1: 'enero',
+    2: 'febrero',
+    3: 'marzo',
+    4: 'abril',
+    5: 'mayo',
+    6: 'junio',
+    7: 'julio',
+    8: 'agosto',
+    9: 'septiembre',
+    10: 'octubre',
+    11: 'noviembre',
+    12: 'diciembre'
+}
+# Iteramos por los ítems (clave, valor) del diccionario
+for clave, valor in dictio_meses.items():
+    # mostramos por terminal tanto la clave como el valor
+    print(f'Número del mes: {clave}, Nombre del mes: {valor}')
+```
+
+Los bucles en Python permiten iterar sobre los diccionarios accediendo tanto a sus claves como a sus valores. Al usar for, podemos recorrer las claves, los valores o ambos simultáneamente. Esto se hace con los métodos keys(), values() e items(), facilitando la manipulación de los datos en un diccionario.

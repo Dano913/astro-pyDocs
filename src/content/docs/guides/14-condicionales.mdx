@@ -1,0 +1,505 @@
+---
+title: Condicionales
+---
+
+El control flow o control de flujo se refiere al orden en que se ejecutan las instrucciones en un programa o código. El control flow determina qué instrucciones se ejecutan y en qué orden lo hacen y nos permitirá controlar los posibles errores. Existen varias **estructuras de control flow**:
+
+## ESTRUCTURA DE if
+---
+**if** es una estructura de control de flujo que se utiliza para tomar decisiones basadas en una condición. La sintaxis básica de la función **if** es la siguiente.
+
+📌**IMPORTANTE:** acordarse de poner los dos puntos : y a continuación hacer una indentación o sangría.
+
+```python
+if condición:
+    `Sección de código que se ejecuta si la condición es verdadera` 
+```
+
+- Si la condición **if** se evalúa como verdadera **True**, entonces se ejecuta el código indentado que sigue a la sentencia.
+
+- Si la expresión se evalúa como falsa **False**, entonces el código indentado que sigue a la sentencia **if** se salta y el programa ejecuta la siguiente línea de código que está indentada al mismo nivel que la sentencia **if**.
+
+Veamos algunos ejemplos
+
+```python
+# Vamos a usar print("La condición se cumple") si la condición se cumple:
+# Primera condición 5 es mayor que 2:
+if 5 > 2:
+	print("La condición se cumple")
+
+# Vamos a intentarlo ahora con una condición que no se cumpla. 5 es menor que 2:
+
+if 5 < 2:
+	print("La condición se cumple otra vez")
+# Output esperado: La condición se cumple
+
+# Al no cumplirse la segunda condición, no se ejecutará esta sección del código pero
+# no provocaremos un error: Control de flujo.
+```
+
+Vamos a ver otro ejemplo
+
+```python
+lecciones_completadas = 3
+print(f"Hemos completado estas lecciones {lecciones_completadas}")
+# Output esperado:
+# Hemos completado estas lecciones 3
+
+# Completamos varias lecciones en un día, suponemos que 5:
+lecciones_dia = 5
+print(f"Hoy hemos completado estas lecciones {lecciones_dia}")
+# Output esperado: Hoy hemos completado estas lecciones 5
+
+# Definimos nuestra condicción. En este caso comprobamos si hoy hemos completado alguna lección:
+if lecciones_dia > 0:
+	lecciones_completadas += lecciones_dia
+
+# Comprobamos que se ha ejecutado
+print(f"Las lecciones completadas ahora son: {lecciones_completadas}")
+
+# Output esperado: Las lecciones completadas ahora son: 8
+```
+
+La estructura if en Python permite ejecutar código basado en condiciones lógicas. Es esencial para la toma de decisiones en un programa, ya que determina qué bloques de código se ejecutan según si las condiciones son verdaderas o falsas.
+
+## Condicionales: if ... else
+---
+La estructura if ... else es otra forma de controlar el flujo del programa basado en una condición. Su sintaxis básica es la siguiente:
+
+```python
+if condición:
+    # Sección de código que se ejecuta si la condición es verdadera
+else:
+    # Sección de código que se ejecuta si la condición es falsa
+```
+
+📌 **IMPORTANTE**: Recordad usar los dos puntos : después de la condición y, a continuación, hacer una indentación o sangría tanto para el bloque **if** como para el bloque **else**.
+
+● Si la condición **if** se evalúa como verdadera **(True)**, entonces se ejecuta el código indentado que sigue a la sentencia **if**, y el bloque **else** se ignora.
+
+● Si la expresión se evalúa como falsa **(False)**, entonces el código indentado que sigue a la sentencia **else** se ejecuta, y el bloque **if** se salta.
+
+Veamos algunos ejemplos
+
+```python
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día:
+lecciones_dia = 5
+
+# Definimos nuestra condicción.
+if lecciones_dia > 0:
+	lecciones_completadas += lecciones_dia
+
+else:
+	print(f"Hoy no hemos completado ninguna lección")
+
+# Comprobamos que se ha ejecutado
+print(f"Las lecciones completadas ahora son:{lecciones_completadas}")
+
+# Output esperado: Las lecciones completadas ahora son:8
+```
+```python
+# Hacemos lo mismo pero sin completar ninguna lección hoy
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día
+lecciones_dia = 0
+
+# Definimos nuestra condicción
+if lecciones_dia > 0:
+	lecciones_completadas += lecciones_dia
+
+else:
+	print(f'Hoy no hemos completado ninguna lección')
+
+# Comprobamos que se ha ejecutado
+print(f"Las lecciones completadas ahora son:{lecciones_completadas}")
+
+# Output esperado:
+# Hoy no hemos completado ninguna lección
+# Las lecciones completadas ahora son:3
+```
+
+## Condicionales: if... elif ... else
+---
+La estructura if ... elif ... else es utilizada para tomar decisiones múltiples basadas en múltiples condiciones. Su sintaxis básica es la siguiente:
+
+```python
+if condición_1:
+    # Sección de código que se ejecuta si la condición_1 es verdadera
+elif condición_2:
+    # Sección de código que se ejecuta si la condición_1 es falsa y la condición_2 es verdadera
+else:
+    # Sección de código que se ejecuta si ninguna de las condiciones anteriores es verdadera
+```
+
+📌 **IMPORTANTE**: Recordad usar los dos puntos : después de cada condición **(if, elif y else)**, y a continuación, hacer una indentación o sangría tanto para el bloque correspondiente como para el bloque siguiente.
+
+● Si la condición **if** se evalúa como verdadera **(True)**, entonces se ejecuta el código indentado que sigue a la sentencia **if**, y los bloques **elif** y **else** se ignoran.
+
+● Si la condición **if** es falsa y la condición **elif** se evalúa como verdadera **(True)**, entonces se ejecuta el código indentado que sigue a la sentencia **elif**, y el bloque **else** se ignora.
+
+● Si ninguna de las condiciones anteriores es verdadera, entonces se ejecuta el código indentado que sigue a la sentencia **else**.
+
+Vamos a ver un ejemplo:
+
+```python
+# Vamos a comprobar si hemos completado más de 5 lecciones hoy
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día
+lecciones_dia = 7
+
+# Definimos nuestra condicción
+if lecciones_dia == 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado 5 lecciones hoy")
+elif lecciones_dia > 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado más de 5 lecciones hoy")
+else:
+	print(f"Hoy hemos completado menos de 5 lecciones")
+
+# Comprobamos que se ha ejecutado:
+print(f"Hoy hemos completado estas lecciones: {lecciones_dia}")
+print(f"Las lecciones completadas hasta ahora son: {lecciones_completadas}")
+
+# Output esperado:
+# Hemos completado más de 5 lecciones hoy
+# Hoy hemos completado estas lecciones: 7
+# Las lecciones completadas hasta ahora son: 10
+```
+
+```python
+# Hacemos lo mismo pero completando justo 5 lecciones hoy
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día
+lecciones_dia = 5
+
+# Definimos nuestra condicción
+if lecciones_dia == 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado 5 lecciones hoy")
+elif lecciones_dia > 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado más de 5 lecciones hoy")
+else:
+	print(f"Hoy hemos completado menos de 5 lecciones")
+
+# Comprobamos que se ha ejecutado
+print(f"Hoy hemos completado estas lecciones: {lecciones_dia}")
+print(f"Las lecciones completadas hasta ahora son: {lecciones_completadas}")
+
+# Output esperado:
+# Hemos completado 5 lecciones hoy
+# Hoy hemos completado estas lecciones: 5
+# Las lecciones completadas hasta ahora son: 8
+```
+
+```python
+# Hacemos lo mismo pero completando menos de 5 lecciones hoy
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día
+lecciones_dia = 3
+
+# Definimos nuestra condicción
+if lecciones_dia == 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado 5 lecciones hoy")
+elif lecciones_dia > 5:
+	lecciones_completadas += lecciones_dia
+	print(f"Hemos completado más de 5 lecciones hoy")
+else:
+	print(f"Hoy hemos completado menos de 5 lecciones")
+
+# Comprobamos que se ha ejecutado
+print(f"Hoy hemos completado estas lecciones: {lecciones_dia}")
+print(f"Las lecciones completadas hasta ahora son: {lecciones_completadas}")
+
+# Output esperado:
+# Hoy hemos completado menos de 5 lecciones
+# Hoy hemos completado estas lecciones: 3
+# Las lecciones completadas hasta ahora son: 3
+```
+
+Los condicionales **if ... elif ... else** permiten evaluar múltiples condiciones en secuencia. El bloque **if** se evalúa primero; si la condición es verdadera, su código se ejecuta. Si no, se evalúan las condiciones de los bloques **elif**. Si ninguna de las condiciones anteriores es verdadera, se ejecuta el bloque **else**, que es opcional.
+
+## Condicionales: if anidados
+---
+Ocurre cuando incluimos una sentencia **if** dentro de otra sentencia **if**. Los **if** anidados nos permiten construir programas muy complejos que responden a diferentes condiciones.
+
+Es importante tener en cuenta que el uso excesivo de **if** anidados puede hacer que el código sea difícil de leer y mantener.
+
+Es recomendable utilizarlos con moderación y, en su lugar, utilizar técnicas de programación más avanzadas, como las estructuras de datos y los algoritmos.
+
+Vamos a ver algunos ejemplos:
+
+```python
+# Suponemos que un tema consta de 10 lecciones.
+# Vamos a comprobar si hemos hecho más de una lección hoy y si hemos completado el tema
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día
+lecciones_dia = 7
+
+if lecciones_dia > 0:
+	# primero sumamos las lecciones del día:
+	lecciones_completadas += lecciones_dia
+	if lecciones_completadas >= 10:
+		print(f'¡Hemos completado el tema!')
+	else:
+		print(f'Aún no hemos completado el tema')
+else:
+	print(f'Hoy no hemos completado ninguna lección...')
+
+print(f'Hoy hemos completado estas lecciones: {lecciones_dia}')
+print(f'Las lecciones completadas hasta ahora son: {lecciones_completadas}')
+
+# Output esperado:
+# ¡Hemos completado el tema!
+# Hoy hemos completado estas lecciones: 7
+# Las lecciones completadas hasta ahora son: 10
+```
+
+```python
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día:
+lecciones_dia = 4
+
+if lecciones_dia > 0:
+	# primero sumamos las lecciones del día:
+	lecciones_completadas += lecciones_dia
+	if lecciones_completadas >= 10:
+		print(f'¡Hemos completado el tema!')
+	else:
+		print(f'Aún no hemos completado el tema')
+else:
+	print(f'Hoy no hemos completado ninguna lección...')
+
+# Comprobamos que se ha ejecutado
+print(f'Hoy hemos completado estas lecciones: {lecciones_dia}')
+print(f'Las lecciones completadas hasta ahora son: {lecciones_completadas}')
+
+# Output esperado:
+# Aún no hemos completado el tema
+# Hoy hemos completado estas lecciones: 4
+# Las lecciones completadas hasta ahora son: 7
+```
+
+Podemos complicarlo un poco más:
+
+```python
+# Suponemos que un tema consta de 10 lecciones. Vamos a comprobar si hemos hecho
+# más de una lección hoy, como en el ejemplo anterior y si hemos completado el tema.
+# Si no lo hemos completado queremos saber si nos queda más de la mitad(más de 5)
+# o menos.
+
+# Definimos las lecciones completadas por ahora
+lecciones_completadas = 3
+
+# Completamos varias lecciones en un día:
+lecciones_dia = 4
+
+if lecciones_dia > 0:
+	# primero sumamos las lecciones del día:
+	lecciones_completadas += lecciones_dia
+	if lecciones_completadas >= 10:
+		print(f'¡Hemos completado el tema!')
+	else:
+		if lecciones_completadas >= 5:
+			print(f'Ya hemos completado más de la mitad del tema')
+		else:
+			print(f'Aún no hemos completado ni la mitad del tema')
+else:
+	print(f'Hoy no hemos completado ninguna lección...')
+
+# Comprobamos que se ha ejecutado
+print(f'Hoy hemos completado estas lecciones: {lecciones_dia}')
+print(f'Las lecciones completadas hasta ahora son: {lecciones_completadas}')
+
+# Output esperado:
+# Ya hemos completado más de la mitad del tema
+# Hoy hemos completado estas lecciones: 4
+# Las lecciones completadas hasta ahora son: 7
+```
+
+Los condicionales **if** anidados permiten incluir una estructura **if ... else** dentro de otra. Esto significa que una vez que se cumple la primera condición, podemos seguir evaluando otras condiciones dentro del mismo bloque de código. Aunque son útiles para casos complejos, su uso excesivo puede reducir la legibilidad del código, por lo que conviene utilizarlos con moderación.
+
+## Condicionales: if, and or
+---
+- El **and** lo usaremos cuando queramos que se cumplan **TODAS** las condiciones.
+
+- El **or** lo usaremos cuando queramos que se cumplan **ALGUNA** de las condiciones.
+
+Vamos a ver algunos ejemplos
+
+```python
+# Definimos dos nuevas variables
+dia_semana1 = 'viernes'
+hora1 = 17
+
+# Usamos if con and y or para realizar diferentes comprobaciones basadas en el día de la semana y la hora
+
+# Comprobamos si es viernes y si la hora es igual o mayor a 15
+if dia_semana1 == 'viernes' and hora1 >= 15:
+    print(f' Es viernes y ya es finde semana')
+
+# Si no se cumple la condición anterior, comprobamos si es sábado o domingo
+elif dia_semana1 == 'sabado' or dia_semana1 == 'domingo':
+    print(f'Es finde semana')
+
+# Si no se cumple ninguna de las condiciones anteriores, y si no es viernes, sábado ni domingo, pero la hora es mayor o igual a 18
+elif dia_semana1 != 'viernes' and dia_semana1 !='sabado' and dia_semana1 !='domingo' and hora1 >= 18:
+    print(f'Ya has trabajado bastante por hoy')
+
+# Si ninguna de las condiciones anteriores se cumple
+else:
+    print(f'Hay que trabajar')
+
+# Output esperado: Es viernes y ya es finde semana
+```
+
+```python
+# Definimos dos nuevas variables
+dia_semana2 = 'lunes'
+hora2 = 17
+
+# Usamos if con and y or para realizar diferentes comprobaciones basadas en el día de la semana y la hora
+
+# Comprobamos si es viernes y si la hora es igual o mayor a 18
+if dia_semana2 == 'viernes' and hora2 >= 18:
+    print(f' Es viernes y ya es finde semana')
+
+# Si no se cumple la condición anterior, comprobamos si es sábado o domingo
+elif dia_semana2 == 'sábado' or dia_semana2 == 'domingo':
+    print(f'Es fin de semana')
+
+# Si no se cumple ninguna de las condiciones anteriores, y si no es viernes, sábado ni domingo, pero la hora es mayor o igual a 18
+elif dia_semana2 != 'viernes' and dia_semana2 !='sábado' and dia_semana2 !='domingo' and hora2 >= 18:
+    print(f'Ya has trabajado bastante por hoy')
+
+# Si ninguna de las condiciones anteriores se cumple
+else:
+    print(f'Hay que trabajar')
+
+# Output esperado: Hay que trabajar
+```
+
+```python
+# Definimos dos nuevas variables
+dia_semana3 = 'martes'
+hora3 = 19
+
+# Usamos if con and y or para realizar diferentes comprobaciones basadas en el día de la semana y la hora
+
+# Comprobamos si es viernes y si la hora es igual o mayor a 18
+if dia_semana3 == 'viernes' and hora3 >= 18:
+    print(f' Es viernes y ya es finde semana')
+
+# Si no se cumple la condición anterior, comprobamos si es sábado o domingo
+elif dia_semana3 == 'sábado' or dia_semana3 == 'domingo':
+    print(f'Es fin de semana')
+
+# Si no se cumple ninguna de las condiciones anteriores, y si no es viernes, sábado ni domingo, pero la hora es mayor o igual a 18
+elif dia_semana3 != 'viernes' and dia_semana3 != 'sábado' and dia_semana3 != 'domingo' and hora3 >= 18:
+    print(f'Ya has trabajado bastante por hoy')
+
+# Si ninguna de las condiciones anteriores se cumple
+else:
+    print(f'Hay que trabajar')
+
+# Output esperado: Ya has trabajado bastante por hoy
+```
+
+```python
+# Definimos dos nuevas variables
+dia_semana4 = 'sábado'
+hora4 = 11
+
+# Usamos if con and y or para realizar diferentes comprobaciones basadas en el día de la semana y la hora
+
+# Comprobamos si es viernes y si la hora es igual o mayor a 18
+if dia_semana4 == 'viernes' and hora4 >= 18:
+    print(f' Es viernes y ya es fin de semana')
+
+# Si no se cumple la condición anterior, comprobamos si es sábado o domingo
+elif dia_semana4 == 'sábado' or dia_semana4 == 'domingo':
+    print(f'Es fin de semana')
+
+# Si no se cumple ninguna de las condiciones anteriores, y si no es viernes, sábado ni domingo, pero la hora es mayor o igual a 18
+elif dia_semana4 != 'viernes' and dia_semana4 != 'sábado' and dia_semana4 != 'domingo' and hora4 >= 18:
+    print(f'Ya has trabajado bastante por hoy')
+
+# Si ninguna de las condiciones anteriores se cumple
+else:
+    print(f'Hay que trabajar')
+
+# Output esperado: Es fin de semana
+```
+
+Los condicionales **if** con los operadores lógicos **and** y **or** permiten evaluar múltiples condiciones al mismo tiempo. Usamos **and** cuando queremos que todas las condiciones sean verdaderas para ejecutar un bloque de código, y **or** cuando solo es necesario que una de las condiciones sea verdadera. Esto nos permite tomar decisiones más complejas en nuestros programas de manera eficiente.
+
+## Condicionales: while
+---
+Los bucles **while** son una estructura de control que permite ejecutar un bloque de código varias veces mientras se cumpla una determinada condición. El bucle **while** se repite continuamente mientras la condición especificada sea veradera. Si la condición es falsa, el bucle **while** termina y la ejecución continúa con el código que sigue al bucle.
+
+La condición en el bucle **while** puede ser cualquier expresión booleana, es decir, una condición que sea **True** o **False**. Usamos un **while** cuando no sabemos cuántas veces vamos a tener que ejecutar el bucle.
+
+La sintaxis básica del bucle while en Python es la siguiente:
+
+📌 **IMPORTANTE**: acordaos de poner los dos puntos `:` y a continuación hacer una indentación o sangría.
+
+📌 **IMPORTANTE**: si la condición del bucle **while** nunca se vuelve falsa, el bucle se ejecutará infinitamente, lo que puede llevar a errores y problemas en el programa. Por lo tanto, es importante asegurarse de que la condición se vuelve falsa en algún momento.
+
+```python
+Vamos a ver varios ejemplos
+
+# Supongamos que tenemos 23 días de vacaciones al año:
+dias_vacaciones = 23
+
+# Mientras que los días de vacaciones sean mayores a 0, aún nos quedan días.
+while dias_vacaciones > 0:
+
+		# Imprimimos el número de días de vacaciones restantes.
+    print(f"Aún nos quedan: {dias_vacaciones} días de vacaciones")
+
+    # Reducimos el contador de días de vacaciones en 1 en cada iteración.
+    dias_vacaciones -= 1
+```
+
+Vamos a juntarlo con una condición **if**
+
+```python
+# Supongamos que tenemos 23 días de vacaciones al año:
+dias_vacaciones = 23
+
+# Mientras que los días de vacaciones sean mayores a 0, todavía nos quedan días.
+while dias_vacaciones > 0:
+    # Imprimimos el número de días de vacaciones restantes.
+    print(f'Aún nos quedan: {dias_vacaciones} días de vacaciones')
+
+    # Reducimos el contador de días de vacaciones en 1 en cada iteración.
+    dias_vacaciones -= 1
+
+    # Si los días de vacaciones llegan a 0, mostramos un mensaje indicando que se han agotado los días.
+    if dias_vacaciones == 0:
+        print(f'Se nos han acabado los días')
+```
+
+El bucle while en Python ejecuta un bloque de código de manera repetitiva mientras una condición sea verdadera. Es útil para situaciones en las que no sabemos de antemano cuántas veces se debe repetir el ciclo, ya que sigue ejecutándose hasta que la condición se vuelva falsa.

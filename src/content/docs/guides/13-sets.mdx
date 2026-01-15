@@ -1,0 +1,365 @@
+---
+title: Sets
+---
+
+Un conjunto o set es una colección desordenada y no repetida de elementos únicos y mutables. Se utilizan principalmente para realizar operaciones matemáticas, como unión, intersección, diferencia y diferencia simétrica entre conjuntos.
+
+**Las principales características de los sets son:**
+
+- **Colección no ordenada:** los elementos dentro de un set no tienen un orden específico. No se pueden acceder a los elementos de un conjunto mediante índices ya que no tienen un orden definido.
+
+- **Elementos únicos:** cada elemento dentro de un set es único, es decir, no se pueden tener elementos duplicados en un set.
+
+- **Mutable:** el set es mutable, se pueden agregar o eliminar elementos del conjunto.
+
+- **Métodos para realizar operaciones matemáticas:** los set en Python vienen con una serie de métodos integrados para realizar operaciones matemáticas, como unión, intersección, diferencia y diferencia simétrica entre conjuntos.
+
+- **No admite elementos mutables:** un set no puede contener elementos mutables como listas, set o diccionarios, ya que estos elementos pueden cambiar y afectar la integridad del set.
+
+**Para definir un set tenemos varias maneras...**
+
+Utilizando llaves **{}** y separando cada elemento con una coma
+
+```python
+# Definimos una nueva varible de tipo set
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+print(f"Nuestro conjunto de nombres es: {set_nombres}")
+print(f'El tipo de nuestro conjunto es: ', type(set_nombres))
+# Output esperado:
+# Nuestro conjunto de nombres es:  {'Belén', 'Catalina', 'Ana', 'Elena', 'David', 'Francisco'}
+# El tipo de nuestro conjunto es:  <class 'set'>
+```
+
+Utilizando la función **set()**: pasamos como argumento una estructura de datos, como una tupla o una lista, dentro de los paréntesis
+
+```python
+# Definimos una nueva variable tipo tupla
+tupla_nombres = ("Ana", "Belén", "Catalina", "David", "Elena", "Francisco")
+
+# Usamos la función set para convertir tupla_nombres en un conjunto
+set_nombres2 = set(tupla_nombres)
+
+print(f"Nuestro conjunto de nombres es: {set_nombres2}")
+print(f"El tipo de nuestro conjunto es: {type(set_nombres2)}")
+# Output esperado:
+# Nuestro conjunto de nombres es: {'Francisco', 'Ana', 'Catalina', 'David', 'Belén', 'Elena'}
+# El tipo de nuestro conjunto es: <class 'set'>
+```
+
+Los sets en Python son colecciones desordenadas de elementos únicos, lo que significa que no permiten duplicados. Son útiles para realizar operaciones matemáticas como uniones, intersecciones y diferencias entre conjuntos.
+
+## Sets, métodos
+---
+Los sets en Python vienen con una serie de métodos incorporados que nos permiten realizar operaciones sobre ellos de manera eficiente.
+
+**Aquí describimos algunos de los métodos más utilizados.**
+
+- 1️⃣ len()
+
+- 2️⃣ copy()
+
+- 3️⃣ add()
+
+- 4️⃣ update()
+
+- 5️⃣ pop()
+
+- 6️⃣ remove()
+
+- 7️⃣ discard()
+
+- 8️⃣ clear()
+
+### 1️⃣ len()
+---
+Esta función se utiliza para obtener la cantidad de elementos que hay en un conjunto.
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+print(f"La longitud de nuestro set es: {len(set_nombres)}")
+# Output esperado:
+#La longitud de nuestro set es: 6
+```
+
+### 2️⃣ copy()
+---
+Este método se utiliza para crear una copia de un conjunto existente
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# Copiamos el conjunto:
+set_nombres_copia = set_nombres.copy()
+print(f"Nuestro conjunto de nombres copiado es: {set_nombres_copia}")
+# Output esperado:
+# Nuestro conjunto de nombres copiado es: {'Ana', 'Belén', 'Francisco', 'David', 'Elena', 'Catalina'}
+```
+
+### 3️⃣ add()
+---
+Este método se utiliza para agregar sólo un elemento al conjunto que pasaremos como argumento
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# Utilizamos el método add para :
+set_nombres.add("Victor")
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: {'Victor', 'Catalina', 'David', 'Francisco', 'Ana', 'Belén', 'Elena'}
+```
+
+### 4️⃣ update()
+---
+Este método se utiliza para agregar múltiples elementos a un conjunto, se lo deberemos pasar como lista
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# utilizamos el método update:
+set_nombres.update(["Victor", "Marta", "Julia"])
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: {'Marta', 'David', 'Elena', 'Julia', 'Catalina', 'Victor', 'Belén', 'Ana', 'Francisco'}
+```
+
+### 5️⃣ pop()
+---
+Este método se utiliza para eliminar un elemento aleatorio del conjunto y nos devuelve cual es ese elemento que eliminamos. En este caso nos elimina un elemento al azar.
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# utilizamos el método pop:
+elemento_eliminado = set_nombres.pop()
+print(f'El elemento eliminado es: ',elemento_eliminado)
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# El elemento eliminado es:  Ana
+# Nuestro conjunto de nombres ahora es: {'Elena', 'Francisco', 'Belén', 'David', 'Catalina'}
+```
+
+### 6️⃣ remove()
+---
+Este método se utiliza para eliminar un elemento específico de un conjunto. Es importante tener en cuenta que el método remove() solo elimina un elemento a la vez.
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# utilizamos el método remove, entre paréntesis indicamos el elemento que eliminamos:
+set_nombres.remove("David")
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: {'Catalina', 'Elena', 'Francisco', 'Belén', 'Ana'}
+
+# Utilizamos el método remove, indicando un elemento que no exista, como Victor
+set_nombres.remove("Victor")
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado: KeyError: 'Victor'
+```
+
+### 7️⃣ discard()
+---
+Este método se utiliza para eliminar un elemento específico de un conjunto, pero sin generar un error si el elemento no existe en el conjunto al contrario que el método **remove()**.
+
+Es importante tener en cuenta que el método **discard()** solo elimina un elemento a la vez.
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# utilizamos el método discard, entre paréntesis indicamos el elemento que eliminamos:
+set_nombres.discard("David")
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: {'Francisco', 'Catalina', 'Belén', 'Elena', 'Ana'}
+
+# utilizamos el método discard, indicando un elemento que no este, como Victor
+set_nombres.discard("Victor")
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: {'Francisco', 'Catalina', 'Belén', 'Elena', 'Ana'}
+```
+
+### 8️⃣ clear()
+---
+Este método se utiliza para eliminar todos los elementos de un conjunto.
+
+```python
+# Recordamos nuestra variable
+set_nombres = {"Ana", "Belén", "Catalina", "David", "Elena", "Francisco"}
+
+# Utilizamos el método clear:
+set_nombres.clear()
+print(f"Nuestro conjunto de nombres ahora es: {set_nombres}")
+# Output esperado:
+# Nuestro conjunto de nombres ahora es: set()
+```
+
+Los métodos de los sets en Python permiten realizar diversas operaciones que facilitan la manipulación y comparación de conjuntos. Métodos como **add()** permiten añadir elementos, **remove()** y **discard()** eliminan elemento
+
+## Sets, métodos de conjuntos
+---
+Los conjuntos admiten una variedad de operaciones para manipular y comparar. Vamos a ver los más comunes
+
+- 1️⃣ union()
+
+- 2️⃣ intersection()
+
+- 3️⃣ difference()
+
+- 4️⃣ symmetric_difference()
+
+- 5️⃣ isdisjoint()
+
+- 6️⃣ issubset()
+
+- 7️⃣ issuperset()
+
+### 1️⃣ union()
+---
+Este método nos devuelve la unión entre los dos conjuntos que pasemos como argumento, tenderemos de resultado un solo conjunto con todos los elementos no repetidos que haya en ambos. Indicaremos el primer set delante del método union() y el segundo set dentro de los paréntesis como argumento.
+
+```python
+# Definimos dos nuevos conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Unimos los dos sets usando el método union:
+set_union = set_numeros1.union(set_numeros2)
+print(f"Nuestros set unidos son:{set_union}")
+# Output esperado:
+# Nuestros set unidos son:{1, 2, 3, 4, -1, -4, -3, -2}
+```
+
+### 2️⃣ intersection()
+---
+Este método nos devuelve los elementos comunes en los dos conjuntos
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Buscamos la intersección entre ambos
+set_interseccion = set_numeros1.intersection(set_numeros2)
+print(f"La intersección es: {set_interseccion}")
+# Output esperado:
+# La intersección es: {1, 2, 3, 4}
+```
+
+### 3️⃣ difference()
+---
+Este método nos devuelve os elementos que son diferentes entre los dos conjuntos. El orden de colocación de los conjuntos es importante.
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Primero buscamos la diferencia entre set_numeros1 y set_numeros2:
+set_difference1= set_numeros1.difference(set_numeros2)
+print(f"Los elementos que hay en set_numeros1 y no en set_numeros2 son: {set_difference1}")
+# Output esperado:
+# Los elementos que hay en set_numeros1 y no en set_numeros2 son: {-4, -3, -1, -2}
+
+# ahora buscamos la diferencia entre set_numeros2 y set_numeros1. Cambiamos el orden:
+
+set_difference2= set_numeros2.difference(set_numeros1)
+print(f"Los elementos que hay en set_numeros2 y no en set_numeros1 son: {set_difference2}")
+# Output esperado:
+# Los elementos que hay en set_numeros2 y no en set_numeros1 son: set()
+```
+
+### 4️⃣ symmetric_difference()
+---
+Este método nos devuelve los elementos de ambos conjuntos, que no están presentes en el otro. En este caso, nos devuelve un conjunto con los elementos que son únicos en cada uno de los conjuntos que comparamos. Por lo tanto, en este caso, el orden ya no es importante
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Usamos el método symmetric_difference:
+
+set_diferencia_simetrica = set_numeros1.symmetric_difference(set_numeros2)
+print(f"Los elementos unicos de ambos conjuntos son: {set_diferencia_simetrica}")
+# Output esperado:
+# Los elementos unicos de ambos conjuntos son: {-4, -3, -1, -2}
+```
+
+### 5️⃣ isdisjoint()
+---
+Este método nos sirve para determinar si dos conjuntos son disjuntos, es decir, si no tienen elementos en común.
+
+Indicaremos el primer conjunto delante del método **isdisjoint()** y el segundo conjunto dentro de los paréntesis como argumento. El método devuelve un valor booleano True si los dos conjuntos son disjuntos (no tienen elementos en común) y devuelve False en caso contrario
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Usamos el método isdisjoint():
+set_disjoint = set_numeros1.isdisjoint(set_numeros2)
+print(f"Tienen todos los elementos distintos : {set_disjoint}")
+# Output esperado:
+# Tienen todos los elementos distintos : False
+```
+
+### 6️⃣ issubset()
+---
+Este método se usa para comprobar si todos los elementos de un set están definidos en el otro
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Comprobamos si los elementos del set_numeros2 están en el set_numeros1:
+
+set_subset1= set_numeros1.issubset(set_numeros2)
+print(f"Todos elementos de set_numeros1 están contenidos en set_numeros2: {set_subset1}")
+# Output esperado:
+# Todos elementos de set_numeros1 están contenidos en set_numeros2: False
+
+# Comprobamos si los elementos del set_subset1 están en el set_subset2:
+
+set_subset2= set_numeros2.issubset(set_numeros1)
+print(f"Todos elementos de set_numeros2 están contenidos en set_numeros1: {set_subset2}")
+# Output esperado:
+# Todos elementos de set_numeros2 están contenidos en set_numeros1: True
+```
+
+### 7️⃣ issuperset()
+---
+Este método es la inversa que el método **issubset()**
+
+```python
+# Recordamos nuestros conjuntos
+set_numeros1 = {-1, -2, -3, -4, 1, 2, 3, 4}
+set_numeros2 = {1, 2, 3, 4}
+
+# Comprobamos si el set_numeros1 contiene a todos los elementos del set_numeros2:
+
+superset1= set_numeros1.issuperset(set_numeros2)
+print(f'Todos elementos de set_numeros2 están contenidos en set_numeros1: ', superset1)
+# Output esperado:
+# Todos elementos de set_numeros2 están contenidos en set_numeros1:  True
+
+# Comprobamos si el set_numeros1 contiene a todos los elementos del set_numeros2:
+superset2= set_numeros2.issuperset(set_numeros1)
+print(f'Todos elementos de set_numeros1 están contenidos en set_numeros2: ', superset2)
+# Output esperado:
+# Todos elementos de set_numeros1 están contenidos en set_numeros2:  False
+
+```
+
+Los métodos de conjuntos en Python permiten realizar operaciones entre sets de manera eficiente. Con union(), podemos combinar los elementos de dos o más conjuntos; con intersection(), obtener los elementos que son comunes; y con difference(), determinar los elementos que están en un conjunto pero no en otro. Estas operaciones son útiles para trabajar con grandes cantidades de datos que necesitan ser comparados o combinados, aprovechando la naturaleza única de los elementos en un set.

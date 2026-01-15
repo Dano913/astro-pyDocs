@@ -1,0 +1,127 @@
+---
+title: Métodos de diccionarios
+---
+
+Los diccionarios en Python son muy versátiles y cuentan con varios métodos incorporados que facilitan su manipulación.
+
+Aquí repasamos algunos de los métodos más importantes:
+
+- 1️⃣ keys()
+
+- 2️⃣ values()
+
+- 3️⃣ items()
+
+- 4️⃣ get()
+
+- 5️⃣ update()
+
+- 6️⃣ setdefault()
+
+- 7️⃣ pop() y popitem()
+
+- 8️⃣ copy()
+
+- 9️⃣ clear()
+
+## 1️⃣ keys()
+---
+Devuelve todas las **claves** del diccionario como un objeto de vista de diccionario (similar a una lista)
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+claves = mi_diccionario.keys()
+print(claves)  # Salida: dict_keys(['nombre', 'edad', 'ciudad'])
+```
+
+## 2️⃣ values()
+---
+Devuelve todos los **valores** del diccionario como un objeto de vista de diccionario.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+valores = mi_diccionario.values() 
+print(valores)  # Salida: dict_values(['Juan', 25, 'Madrid'])
+```
+
+## 3️⃣ items()
+---
+Devuelve todos los pares **clave-valor** del diccionario como un objeto de vista de diccionario de tuplas.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+elementos = mi_diccionario.items()
+print(elementos)  # Salida: dict_items([('nombre', 'Juan'), ('edad', 25), ('ciudad', 'Madrid')])
+```
+
+## 4️⃣ get()
+---
+Obtiene el valor asociado a una clave. Si la clave no existe, devuelve None o un valor predeterminado.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+print(mi_diccionario.get("nombre"))  # Salida: Juan
+print(mi_diccionario.get("apellido", "No especificado"))  # Salida: No especificado
+```
+
+## 5️⃣ update()
+---
+Actualiza el diccionario con pares clave-valor de otro diccionario o de un iterable de pares clave-valor. Si la clave ya existe, actualiza su valor.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+mi_diccionario.update({"edad": 30, "profesión": "Ingeniero"})
+print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid', 'profesión': 'Ingeniero'}
+```
+
+## 6️⃣ setdefault()
+---
+Devuelve el valor de una clave si existe. Si no, inserta la clave con un valor predeterminado y devuelve ese valor.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+mi_diccionario.setdefault("apellido", "No especificado")
+print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid', 'profesión': 'Ingeniero', 'apellido': 'No especificado'}
+```
+
+## 7️⃣ pop() y popitem()
+---
+- **pop()**: Elimina un par clave-valor y devuelve su valor. Si la clave no existe, genera un error KeyError.
+
+- **popitem()**: Elimina y devuelve el último par clave-valor insertado como una tupla. Si el diccionario está vacío, genera un error KeyError.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+
+valor_eliminado = mi_diccionario.pop("profesión")
+print(valor_eliminado)  # Salida: Ingeniero
+print(mi_diccionario)   # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid', 'apellido': 'No especificado'}
+
+ultimo_elemento = mi_diccionario.popitem()
+print(ultimo_elemento)  # Salida: ('apellido', 'No especificado')
+print(mi_diccionario)   # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid'}
+```
+
+## 8️⃣ copy()
+---
+Devuelve una copia superficial del diccionario.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+copia_diccionario = mi_diccionario.copy()
+print(copia_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid'}
+```
+
+## 9️⃣ clear()
+---
+Elimina todos los elementos del diccionario, dejándolo vacío.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 25, "ciudad": "Madrid"}
+mi_diccionario.clear()
+print(mi_diccionario)  # Salida: {}
+```
+
+Los métodos de los diccionarios en Python son herramientas muy útiles para gestionar datos de forma eficiente.
+
+Nos permiten acceder, actualizar, eliminar y copiar elementos de forma rápida, lo que mejora la flexibilidad al trabajar con grandes cantidades de información estructurada.

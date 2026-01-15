@@ -1,0 +1,95 @@
+---
+title: "Estructuras de iteración: Bucle for en listas, tuplas y sets"
+---
+
+Los bucles **for** son una estructura de control que se utiliza para iterar sobre una secuencia de elementos que sea iterable (una cadena de caracteres, una lista, una tupla, un diccionario o un conjunto) y realizar una acción en cada uno de los elementos de ese iterable.
+
+La sintaxis básica de un **bucle for** en Python es la siguiente:
+
+📌**IMPORTANTE**: acordaros de poner los dos puntos : y a continuación hacer una indentación o sangría.
+
+```python
+for elemento in iterable:
+# Donde elemento será cada elemento de nuestro iterable
+# iterable será una variable de tipo lista, tupla, diccionario, etc. 
+```
+
+## Bucle for en una lista:
+---
+Vamos a ver un ejemplo para mostrar por terminal cada elemento de una lista
+
+```python
+# Definimos una variable tipo lista, un iterable
+dias_semana = ['lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado', 'domingo']
+
+# Hacemos bucle for para mostrar por terminal cada uno de los elementos en dias_semana
+for dia in dias_semana:
+	print(f'Hoy es {dia}')
+```
+
+## Bucle for en una lista:
+---
+Bucle for en una lista aplicando dos métodos de listas **append** y **upper**:
+
+
+```python
+# Definimos la lista nombres en minuscula:
+nombres = ['juan', 'maría', 'luis', 'ana', 'carlos']
+
+# Definimos una lista vacía para almacenar los nombres en mayúsculas
+nombres_mayusculas = []
+
+# Iteramos por cada elemento de la lista nombres
+for nombre in nombres:
+		# agregamos cada nombre a la nueva lista y convertimos en mayus:
+    nombres_mayusculas.append(nombre.upper())
+
+print(f'La nueva lista es: {nombres_mayusculas}')
+
+# Comprobamos que la primera lista no ha cambiado
+print(f'La lista inicial de nombres no ha cambiado:{nombres}')
+
+# Output esperado:
+# La nueva lista es: ['JUAN', 'MARÍA', 'LUIS', 'ANA', 'CARLOS']
+# La lista inicial de nombres no ha cambiado:['juan', 'maría', 'luis', 'ana', 'carlos']
+```
+
+## Bucle for en una tupla
+---
+Bucle for a través de los elementos de una tupla para crear una lista con los mismos elementos, sin usar la función list()
+
+```python
+# Definimos una tupla con tres elementos y una lista vacía:
+tupla_movimiento = ("rapido", "lento", "normal")
+lista_movimiento = []
+
+# Iteramos por cada elemento de tupla_movimiento
+for elemento in tupla_movimiento:
+	# agregamos cada elemento a la lista_movimiento
+	lista_movimiento.append(elemento)
+
+# Mostramos la lista_movimiento por terminal
+print(f'Mi lista es: {lista_movimiento}')
+```
+
+## Bucle for en un set
+---
+Bucle for a través de los elementos un set. El objetivo es sumar todos los números que forman el set
+
+```python
+# Definimos un set y un resultado. Vamos a sumar los elementos de set_numeros:
+set_numeros = {4, 6, 7, 5}
+resultado = 0
+
+# Iteramos por cada elemento de set_numeros
+for elemento in set_numeros:
+	# a cada paso del buble sumamos el valor del elemento al resultado
+	resultado += elemento
+
+# Mostramos el resultado por terminal
+print(f'La suma de todos los elementos del set es: {resultado}')
+
+# Output esperado: La suma de todos los elementos del set es: 22
+```
+
+Los **bucles for** en Python nos permiten recorrer estructuras de datos como listas, tuplas y sets, ejecutando un bloque de código para cada elemento. Con listas y tuplas, podemos acceder a los elementos en un orden específico (indexado), mientras que en los sets, los elementos se recorren en un orden no definido debido a su naturaleza desordenada.

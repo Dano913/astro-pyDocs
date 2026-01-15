@@ -1,0 +1,70 @@
+---
+title: Diccionarios, definición e indexación
+---
+
+Un **diccionario** en Python es una estructura de datos que almacena pares de **clave-valor**.
+
+A diferencia de las listas y las tuplas, que almacenan elementos en un orden específico, los diccionarios son estructuras de datos no ordenadas.
+
+Las claves de los diccionarios deben ser únicas y pueden ser de cualquier tipo inmutable (como cadenas, números o tuplas), mientras que los valores pueden ser de cualquier tipo de dato.
+
+## Creación de diccionarios
+---
+
+Podemos crear un diccionario usando llaves {} o la función dict()
+
+```python
+#Ejemplo creación con llaves 
+mi_diccionario = {
+    "nombre": "Juan",
+    "edad": 25,
+    "ciudad": "Madrid"}
+
+#Ejemplo usando dict()
+mi_diccionario = dict(nombre="Juan", edad=25, ciudad="Madrid")
+```
+
+## Indexación en diccionarios
+---
+
+En lugar de utilizar índices numéricos como en las listas o tuplas, en los diccionarios accedemos a los valores a través de sus **claves**
+
+```python
+mi_diccionario = dict(nombre="Juan", edad=25, ciudad="Madrid")
+print(mi_diccionario["nombre"])  # Salida: Juan
+```
+
+Si intentamos acceder a una clave que no existe, Python generará un error de tipo KeyError.
+
+Para evitar este error, podemos utilizar el método **get()**, que devuelve None si la clave no está presente
+
+```python
+mi_diccionario = dict(nombre="Juan", edad=25, ciudad="Madrid")
+print(mi_diccionario.get("apellido"))  # Salida: None
+```
+
+## Modificacion de valores en un diccionario
+---
+
+Podemos actualizar el valor asociado a una clave simplemente asignando un nuevo valor a la clave existente.
+
+```python
+mi_diccionario = dict(nombre="Juan", edad=25, ciudad="Madrid")
+mi_diccionario["edad"] = 30
+print(mi_diccionario)  # Salida: {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid'}
+```
+
+## Añadir nuevos pares clave-valor
+---
+
+Podemos agregar nuevos pares clave-valor a un diccionario de la misma manera que modificamos uno existente
+
+```python
+mi_diccionario = dict(nombre="Juan", edad=25, ciudad="Madrid")
+mi_diccionario["profesión"] = "Ingeniero"
+print(mi_diccionario)  # {'nombre': 'Juan', 'edad': 30, 'ciudad': 'Madrid', 'profesión': 'Ingeniero'}
+```
+
+Los diccionarios son una forma poderosa de almacenar y acceder a datos mediante pares clave-valor.
+
+Nos permiten indexar datos no por posición, sino por claves, lo que es útil cuando necesitamos asociar valores a identificadores únicos.

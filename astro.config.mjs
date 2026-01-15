@@ -22,6 +22,12 @@ export default defineConfig({
 						{ label: 'Métodos de listas', slug: 'guides/08-metodos-listas' },
 						{ label: 'Tuplas, definición e indexación', slug: 'guides/09-tuplas' },
 						{ label: 'Métodos de tuplas', slug: 'guides/10-metodos-tuplas' },
+						{ label: 'Diccionarios, definición e indexación', slug: 'guides/11-diccionarios' },
+						{ label: 'Métodos de diccionarios', slug: 'guides/12-metodos-diccionarios' },
+						{ label: 'Sets', slug: 'guides/13-sets' },
+						{ label: 'Condicionales', slug: 'guides/14-condicionales' },
+						{ label: 'Estructuras de iteración: Bucle for en listas, tuplas y sets', slug: 'guides/15-iteracion-lista-tupla-set' },
+						{ label: 'Estructuras de iteración: Bucles for en diccionarios', slug: 'guides/16-iteracion-diccionario' },
 					],
 				},
 				{
