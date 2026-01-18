@@ -1,0 +1,133 @@
+---
+title: Funciones incorporadas
+---
+
+Hay varias funciones incorporadas en Python que tienen un uso común en los bucles for, las principales son:
+
+- Función range
+
+- Función enumerate
+
+- Función zip
+
+## Función range
+---
+La función **range()** es una función incorporada en Python que se utiliza para generar una secuencia de números enteros. Esta secuencia se puede utilizar para crear una lista de números o para iterar en un bucle for. La sintaxis es la siguiente:
+
+```python
+range(start, stop, step) 
+# Donde start es el número inicial de la secuencia.Por defecto, el valor es 0
+# stop es el número final de la secuencia. Este parámetro es obligatorio
+# step es el incremento que se utilizará para generar los números de la secuencia. Por defecto, el valor es 1
+```
+
+Vamos a ver algunos ejemplos:
+
+```python
+# Generamos una secuencia de numeros del 0 al 9
+for elemento in range(10):
+	# mostramos el elemento por terminal
+	print(elemento)
+```
+
+```python
+# Generamos una secuencia de numeros del 10 al 51, saltando un número cada paso del bucle for
+for elemento in range(10, 51, 2):
+	# mostramos el elemento por terminal
+	print(elemento)
+```
+
+```python
+# Creamos una lista vacía
+lista_numeros = []
+
+# Generamos una secuencia de numeros del 0 al 9
+for elemento in range(10):
+	# agregamos cada numero a la lista_numeros
+	lista_numeros.append(elemento)
+
+# Mostramos por terminal
+print(f'Mi lista de numeros es: {lista_numeros}')
+
+# Output esperado:
+# Mi lista de numeros es: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+La función **range()** en Python genera una secuencia de números, permitiendo especificar un inicio, un fin y un paso. Es útil para crear iteraciones controladas en bucles. Por defecto, empieza en 0 y el paso es 1, pero estos parámetros pueden ser ajustados según sea necesario.
+
+## Función enumerate
+---
+La función enumerate() se utiliza para iterar sobre una secuencia (como una lista, tupla o cadena de caracteres) mientras proporciona el índice de cada elemento en la secuencia. La función toma un iterable como argumento y devuelve una secuencia de tuplas donde cada tupla contiene un par de valores: el primer valor es el índice del elemento y el segundo valor es el elemento en sí. La sintaxis es la siguiente:
+
+```python
+for indice, elemento in enumerate(iterable):
+# Donde indice es el indice del elemento
+# elemento es cada elemento del iterable
+# iterable es el iterable donde aplicamos la función enumerate
+```
+
+### Función enumerate con una lista
+
+```python
+# Definimos un iterable, una lista
+lista_frutas = ["manzana", "pera", "melocotón", "naranja", "melón"]
+
+# Aplicamos la función enumerate en cada elemento de lista_frutas
+for indice, fruta in enumerate(lista_frutas):
+	# mostramos por terminal el indice generado y el elemento al que acompaña
+	print(f'Indice: {indice}, fruta : {fruta}')
+```
+
+### Función enumerate con una tupla
+
+De manera muy similar a como hemos hecho con la lista, podríamos hacerlo con una tupla
+
+```python
+# Definimos un iterable, una tupla
+tupla_verduras = ("zanahoria", "brócoli", "espinaca", "lechuga", "pepino")
+
+# Aplicamos la función enumerate en cada elemento de tupla_verduras
+for indice, verdura in enumerate(tupla_verduras):
+    # mostramos por terminal el índice generado y el elemento al que acompaña
+    print(f'Índice: {indice}, verdura: {verdura}')
+```
+
+### Función enumerate con una cadena de caracteres
+
+Ahora vamos a hacer lo mismo con una cadena de caracteres, en este caso una cadena con el valor "Python”
+
+```python
+# Definimos una cadena de caracteres
+cadena_palabra = "Python"
+
+# Aplicamos la función enumerate en cada caracter de la cadena
+for indice, caracter in enumerate(cadena_palabra):
+    # mostramos por terminal el índice generado y el carácter al que acompaña
+    print(f"Índice: {indice}, carácter: {caracter}')
+```
+
+La función enumerate() en Python permite iterar sobre una lista, tupla u otro iterable, devolviendo tanto el índice como el valor del elemento en cada iteración. Esto es útil cuando necesitamos acceder simultáneamente al índice y al valor de los elementos de una secuencia durante un bucle.
+
+## Función zip
+---
+La función **zip()** se utiliza para combinar elementos de dos o más iterables en una secuencia de tuplas. Toma como argumentos dos o más iterables y devuelve un iterador en el que cada elemento del primer iterable se une al elemento que ocupa el mismo indice del segundo iterable.
+
+```python
+# Definimos dos iterables
+lista_alumnos = ["Ana", "Juan Carlos", "Silvia", "Jaime", "Laura"]
+tupla_notas = (7, 9, 8, 6)
+
+# Aplicamos la función zip en cada elemento de cada iterable mediante un bucle for
+for alumno, nota in zip(lista_alumnos, tupla_notas)
+	# Mostramos el alumno y la nota por terminal
+	print(f'{alumno}: {nota}')
+
+# Al no tener la misma longitud ambos iterables, falta una nota, la función zip obvia el elemento "Laura"
+# Output esperado:
+# Ana: 7
+# Juan Carlos: 9
+# Silvia: 8
+# Jaime: 6
+```
+
+La función zip() en Python combina elementos de múltiples iterables (como listas o tuplas) y los agrupa en tuplas, donde cada tupla contiene los elementos correspondientes de cada iterable. Se utiliza principalmente cuando necesitamos iterar sobre varios iterables a la vez. Si los iterables tienen diferentes longitudes, zip() detendrá la iteración en el iterable más corto

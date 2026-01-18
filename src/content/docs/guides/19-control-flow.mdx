@@ -1,0 +1,295 @@
+---
+title: Manejo de errores. Control Flow
+---
+
+## Estructuras de control de flujo
+---
+En programación, es común encontrarse con situaciones donde es necesario controlar el flujo de ejecución de un programa, es decir, decidir qué parte del código debe ejecutarse y cuál no, según una determinada condición. En el caso específico de los bucles, las palabras clave **break**, **continue** y **pass** las utilizaremos para alterar el comportamiento del bucle, permitiendo controlar la lógica de repetición y tomar decisiones sobre qué código ejecutar. Suelen aparecer después de el uso de un condicional.
+
+## Estructuras de control de flujo: break
+---
+Utilizaremos **break** dentro de un bucle for o while para detener inmediatamente la ejecución del bucle, saliendo de él y continuando con la ejecución del código que sigue a la estructura del bucle. Esto es útil cuando necesitemos interrumpir el ciclo en función de una **condición específica**, evitando iteraciones innecesarias. Por ejemplo, si en un bucle estamos buscando un elemento en una lista y lo encontramos, **break** puede usarse para salir del bucle inmediatamente, ya que no tiene sentido continuar buscando.
+
+Vamos a ver un ejemplo del uso del **break**. En este caso vamos a sumar los números pares de una lista hasta que encontremos el primer impar:
+
+```Python
+# Creamos una varible que sea una lista de números
+lista_numeros = [2, 4, 4, 5, 6, 7, 8, 9, 10]
+# Creamos una variable para almacenar la suma de los números pares
+suma_pares = 0
+# Iteramos sobre los números de la lista
+for elemento in lista_numeros :
+    # Verificamos si el número es par
+    if elemento % 2 == 0:
+        # Sumamos el número al total
+        suma_pares += elemento
+    else:
+        # Si el número es impar, detenemos el bucle con break
+        break
+# Imprimimos la suma de los números pares
+print(f'La suma de los números pares hasta el primer número impar es: {suma_pares}')
+# Output esperado:
+# La suma de los números pares hasta el primer número impar es: 10 
+```
+
+## Estructuras de control de flujo: continue
+---
+La palabra clave **continue** hace que el programa salte inmediatamente a la siguiente iteración, ignorando cualquier código restante en el cuerpo del bucle para esa iteración en particular. Es útil cuando se desea omitir el procesamiento de ciertos elementos en una iteración pero continuar con las siguientes Por ejemplo, si estamos procesando una lista y ciertos elementos deben ser ignorados bajo una condición específica, continue permite omitir esos elementos sin detener el bucle por completo.
+
+Veamos un ejemplo del uso del **continue**. Queremos sumar todos los números impares de una lista, sin importar si nos encontramos un número par o no(que al encontrarlo pasaremos al siguiente número)
+
+```Python
+# Creamos una lista de números
+lista_numeros2= [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# Inicializamos una variable para almacenar la suma de los números impares
+suma_impares = 0
+# Iteramos sobre los números en la lista
+for elemento in lista_numeros2:
+    # Verificamos si el número es par
+    if elemento % 2 == 0:
+        # Si el número es par, pasamos a la siguiente iteración sin hacer nada
+        continue
+    # Si el número es impar, lo sumamos al total
+    suma_impares += elemento
+# Imprimimos la suma de los números impares
+print(f'La suma de los números impares es: {suma_impares}')
+# Output esperado:
+# La suma de los números impares es: 25
+```
+
+## Estructuras de control de flujo: pass
+---
+A diferencia de **break** y **continue**, **pass** no afecta directamente el flujo de control dentro de un bucle. En realidad, **pass** es una operación nula: no hace nada y simplemente actúa como un marcador de posición. Se utiliza comúnmente cuando se quiere escribir un bloque de código vacío, por ejemplo, cuando se está diseñando una estructura que aún no se ha implementado pero se desea evitar un error de sintaxis.
+
+Un ejemplo de **pass**. Queremos imprimir por consola sólo los número impares, si vemos un impar simplemente pasamos al siguiente paso del bucle for
+
+```Python
+# Creamos una lista de números
+lista_numeros3 = [1, 2, 3, 4, 5]
+# Iteramos sobre los números en la lista
+for elemento in lista_numeros3 :
+    # Verificamos si el número es par
+    if elemento % 2 == 0:
+        # Si es par, no hacemos nada
+        pass
+    else:
+        # Si es impar, imprimimos el número
+        print(elemento )
+# Output esperado:
+# 1
+# 3
+# 5
+```
+
+**Resumiendo:**
+
+- break: Interrumpe el bucle por completo.
+
+- continue: Salta a la siguiente iteración del bucle.
+
+- pass: No realiza ninguna acción, actuando como un marcador de posición.
+
+## Manejo de errores
+---
+El control de errores es lo que llamamos programación defensiva. Se refiere a un enfoque de programación en el que se escriben programas que anticipan y manejan posibles errores o problemas que pueden surgir durante la ejecución. El objetivo de la programación defensiva es crear programas robustos y estables que puedan funcionar en una amplia variedad de situaciones, y que sean capaces de manejar los errores de manera elegante y segura.
+
+Principales tipos de errores
+---
+Los principales tipos de errores de **ValueError** que nos podemos encontrar son los siguientes:
+
+- **TypeError**: se produce cuando una función o operación se aplica a un objeto de tipo inapropiado.
+- **ValueError**: se produce cuando una función o método recibe un argumento de tipo correcto pero con un valor inapropiado.
+- **IndexError**: se produce cuando se intenta acceder a un índice que está fuera del rango de una lista o secuencia.
+- **KeyError**: se produce cuando se intenta acceder a una clave que no existe en un diccionario.
+- **AttributeError**: se produce cuando se intenta acceder a un atributo que no existe en un objeto.
+- **IOError**: se produce cuando se intenta acceder a un archivo que no existe o no se puede abrir.
+- **ZeroDivisionError**: se produce cuando se intenta dividir un número por cero.
+- **ImportError**: se produce cuando no se puede importar un módulo.
+- **KeyboardInterrupt**: se produce cuando el usuario interrumpe la ejecución del programa.
+
+## ¿ Cómo manejamos estos errores?
+---
+En Python tenemos distintas formas de controlar estos errores en nuestro código, algunas de los más importantes son:
+
+- **try... except**
+- **try ... except ... except**
+- **try... except ... else**
+- **try ... except ... finally**
+
+```Python
+- `try` ... `except`
+- `try` ... `except` ... `except`
+- `try` ... `except` ... `else`
+- `try` ... `except` ... `finally`
+```
+
+## Estructura try... except...
+---
+Es una técnica común en Python para controlar los errores que pueden ocurrir durante la ejecución del programa. La idea básica detrás de esta técnica es que podemos envolver una sección de código potencialmente peligrosa en un bloque **try**, y luego definimos una o más cláusulas **except** que manejan los errores que pueden ocurrir en ese bloque.
+
+La sintaxis básica es la siguiente:
+
+Donde ExceptionType es una de las excepciones que hemos visto al principio de la unidad didáctica
+
+Vamos a ver un ejemplo, en este caso una división entre 0, que nos arrojará el error **ZeroDivisionError**
+
+```Python
+# Definimos dos variables tipo integer
+numero1 = 3
+numero2 = 0
+
+# Mostramos por terminal el resultado de la división entre ambas variables
+print(numero1 / numero2)
+
+# Output esperado:
+# ZeroDivisionError: division by zero
+```
+
+El error anterior lo podemos manejar con un **try... except** de la siguiente manera:
+
+```Python
+# Recordamos nuestra variables
+numero1 = 3
+numero2 = 0
+
+# Realizamos la división dentro de un bloque try... except
+try:
+	# mostramos por terminal el resultado de la división si se puede hacer
+	print(numero1 / numero2)
+except ZeroDivisionError:
+	# si no se puede hacer mostramos otro mensaje por terminal y no hay un error
+	print(f'No se puede dividir entre {numero2}')
+
+# Output esperado:
+# No se puede dividir entre 0
+```
+
+## Estructura try... except...except...
+---
+Esta técnica que se usa para contemplar varios tipos de errores diferentes dentro de un mismo bloque. Su sintaxis es:
+
+```Python
+try:
+    # Código que deseamos intentar ejecutar
+except ExceptionType1:
+    # Código que se ejecutará si se produce una excepción de tipo ExceptionType1
+except ExceptionType2:
+    # Código que se ejecutará si se produce una excepción de tipo ExceptionType2
+...
+except ExceptionTypeN:
+    # Código que se ejecutará si se produce una excepción de tipo ExceptionTypeN
+```
+
+Vamos a ver un ejemplo:
+
+- Le preguntamos al usuario que nos de un número que utilizaremos como divisor. Dividiremos 10 entre el valor que nos pasa el usuario.
+
+- Puede que usuario nos pase un 0, por lo que no podremos realizar esta operación, por lo que tendremos que incluir un **try**
+
+- También puede ser que el usuario no nos pase una opción válida, por ejemplo un **string**, por lo que tendremos que tener en cuenta que no podremos dividir 10 entre una letra.
+
+```Python
+# Comenzamos definiendo un bloque try para manejar posibles errores.
+try:
+    # Solicitamos al usuario que ingrese un número y lo convertimos a entero.
+    num = int(input("Ingrese un número: "))
+    # Mostramos por pantalla el número ingresado por el usuario.
+    print("El número ingresado por el usuario es:", num)
+    # Realizamos la división de 10 entre el número ingresado por el usuario.
+    resultado = 10 / num
+    # Mostramos por pantalla el resultado de la división, redondeado a 2 decimales.
+    print(f"El resultado de la división es: {round(resultado, 2)}")
+# Capturamos el error en caso de que el usuario ingrese un valor no válido (por ejemplo, una letra).
+except ValueError:
+    print("Por favor, ingrese un número válido.")
+# Capturamos el error en caso de que el usuario ingrese 0 como divisor, lo cual es inválido.
+except ZeroDivisionError:
+    print("No se puede dividir entre cero.")
+```
+
+## Estructura try... except...else...
+---
+Esta técnica se usa cuando intentamos ejecutar un bloque de código que podría lanzar una excepción. Si la excepción se produce, se captura con un bloque **except** que maneja la excepción. Si hay varias excepciones posibles, cada una puede tener su propio bloque **except**. En el bloque **else**, se coloca el código que se ejecutará si no se produce ninguna excepción en el bloque **try**. Solo se ejecutará si no ejecuta ningún except antes. Su sintaxis es:
+
+```Python
+try:
+    # Código que se puede lanzar una excepción
+except ExceptionTipo1:
+    # Manejo de la excepción Tipo 1
+except ExceptionTipo2:
+    # Manejo de la excepción Tipo 2
+else:
+    # Código a ejecutar si no se produce ninguna excepción
+```
+
+Vamos a ver un ejemplo similar al del apartado anterior:
+
+```python
+# Intentamos realizar las siguientes operaciones:
+try:
+    # Solicitamos al usuario que ingrese un número y lo convertimos a entero.
+    num = int(input("Ingrese un número: ")
+    # Mostramos por pantalla el número ingresado por el usuario.
+    print("El número elegido por el usuario ha sido:", num)
+    # Dividimos 100 entre el número ingresado por el usuario.
+    resultado = 100 / num
+# Capturamos el error en caso de que el usuario ingrese un valor no válido (por ejemplo, una letra).
+except ValueError:
+    print("Debe ingresar un número válido")
+# Capturamos el error en caso de que el usuario ingrese 0 como divisor, lo cual es inválido.
+except ZeroDivisionError:
+    print("No se puede dividir entre cero")
+# Si no se produce ningún error, ejecutamos el bloque else.
+else:
+    # En este caso, hemos movido la impresión del resultado al bloque else, que se ejecuta si el try tiene éxito.
+    print("El resultado de la división es:", round(resultado, 2))
+```
+
+## Estructura try... except...else...finally...
+---
+Esta estructura de control se utiliza para manejar excepciones (errores) que pueden ocurrir durante la ejecución de un programa. El bloque **finally** se utiliza para incluir código que se ejecutará siempre, independientemente de si se produce una excepción o no. Esto puede ser útil para realizar operaciones de limpieza o liberar recursos, independientemente de si el código del bloque **try** produce una excepción o no.
+
+La principal diferencia entre el bloque **finally** y el bloque **else** es que el bloque **finally** se ejecuta siempre, independientemente de si se producen o no excepciones en el bloque **try**, mientras que el bloque **else** solo se ejecuta si no se produce ninguna excepción en el bloque **try**.
+
+Su sintaxis es:
+
+```python
+try:
+    # Código que puede causar una excepción
+except ExceptionTipo1:
+    # Código que maneja la excepción de tipo ExceptionTipo1
+except ExceptionTipo2:
+    # Código que maneja la excepción de tipo ExceptionTipo2
+...
+except:
+    # Código que maneja cualquier otra excepción
+finally:
+    # Código que se ejecuta siempre, independientemente de si se produce una excepción o no
+```
+
+Vamos a ver un ejemplo:
+
+```python
+# Intentamos realizar la división 10 entre 0, lo cual causará una excepción ZeroDivisionError.
+try:
+    resultado = 10 / 0  # Esto causará una excepción ZeroDivisionError
+# Capturamos específicamente el error de división por cero.
+except ZeroDivisionError:
+    print("Error: División por cero")
+# Capturamos el error en caso de que ocurra un tipo de dato no compatible.
+except TypeError:
+    print("Error: Tipo de dato no compatible")
+# Capturamos cualquier otro error no especificado anteriormente.
+except:
+    print("Ocurrió un error inesperado")
+# Independientemente de si se produce una excepción o no, el bloque finally se ejecuta siempre.
+finally:
+    print("Finalizando el proceso...")
+# Output esperado:
+# Error: División por cero
+# Finalizando el proceso...
+```
+
+En esta lección se abordan las **estructuras de control de bucles**, que permiten repetir la ejecución de un bloque de código varias veces.
+
+También se introduce el **control de errores** mediante estructuras como try … except, que permite manejar excepciones sin interrumpir el flujo del programa. Existen variaciones como try … except … else para ejecutar un bloque de código solo si no ocurre ningún error, y try … finally, que asegura la ejecución de ciertas acciones, como la liberación de recursos, independientemente de si hubo errores o no. Estas herramientas proporcionan una gestión más segura y controlada de posibles fallos en el código.

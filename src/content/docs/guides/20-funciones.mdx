@@ -1,0 +1,851 @@
+---
+title: Funciones
+---
+
+Una función es un bloque de código que se puede llamar para realizar una tarea específica. Las funciones se utilizan para organizar el código en piezas más pequeñas y manejables, lo que puede hacer que el código sea más fácil de leer, entender y mantener.
+
+El código dentro de una función solo se ejecuta al llamar la función. Primero definimos la función para especificar su comportamiento deseado y luego la llamamos para invocar ese comportamiento y ejecutar el código contenido dentro de ella.
+
+## Motivación de las funciones
+---
+- **Reutilización de código**: En lugar de repetir el mismo bloque de código varias veces, podemos simplemente llamar a la función cada vez que necesitemos realizar esa tarea.
+- **Facilidad de mantenimiento**: Si encontramos un error en nuestro código o necesitamos realizar algún cambio, solo necesitamos hacerlo en un solo lugar: dentro de la función. Esto evita que tengamos que corregir múltiples instancias del mismo código disperso por nuestro programa.
+- **Claridad y organización**: Al encapsular tareas en funciones con nombres descriptivos, nuestro código se vuelve más legible y organizado. Esto facilita la comprensión de lo que hace cada parte del programa.
+- **Modularidad**: Las funciones nos permiten dividir procesos en pasos más pequeños, lo que facilita la comprensión y el mantenimiento del código.
+
+## Componentes principales de una función
+---
+- **def**: es la palabra clave que tendremos que usar para empezar a definir una función, es obligatorio y es lo primero que tenemos que poner.
+
+- **nombre de la función**: podremos llamar a las funciones como queramos. Es recomendable nombres que sean intuitivos y autodescriptivos. Leyéndolos tenemos que saber que hace la función.
+
+- **parámetros o argumentos**: son los datos que recibirán las funciones, siempre tienen que ir entre paréntesis. Son opcionales, aunque siempre habrá paréntesis pero estos pueden ir vacíos.
+
+- **return**: indica que se ha finalizado la ejecución del código dentro de la función y devuelve un valor o resultado al punto de llamada de la función. Es opcional y puede utilizarse para devolver información específica al código que llamó a la función, lo que permite una comunicación bidireccional entre las partes del programa.
+
+- **documentación de la función**: mediante """... """ entre la línea de definición **def** y el funcionamiento de la función indicaremos varios puntos de nuestra función. Indicaremos el comportamiento en una línea; indicaremos los argumentos que necesita; indicaremos el **return** de nuestra función.
+
+## Extensiones para documentar el código
+---
+Cuando usamos funciones en Python es muy importante documentar el funcionamiento, los parámetros y el return, si lo tiene, de nuestra función. Para hacerlo de una manera más automática existen varias extensiones en Visual Studio Code. Una de esas extensiones es: **autoDocstring - Python Docstring Generator**.
+
+## Variables globales y variables locales
+---
+- **Variable global** es una variable definida fuera de una función y que está disponible en todo el programa, es decir, en cualquier lugar donde se haga referencia a ella. Una variable global se puede acceder desde cualquier función o parte del código que esté en el mismo archivo de Python.
+
+- **Variable local** es una variable definida dentro de una función y que solo está disponible dentro de esa función. Es decir, solo puede ser utilizada dentro de la función donde se ha definido. Cuando se define una variable local con el mismo nombre que una variable global, la variable local oculta la variable global dentro de la función.
+
+## Argumentos vs parámetros
+---
+**Parámetros**: se definen en la definición de la función, es decir entre los paréntesis después del nombre de la función y actúan como variables locales dentro del cuerpo de la función.
+
+**Argumentos**: son los valores que se pasan a una función cuando se **llama** a la misma. Estos argumentos pueden ser cualquier tipo de dato o estructura de datos de Python pero tienen que coincidir con los parámetros especificados a la hora de crear la función
+
+La principal diferencia entre los parámetros y los argumentos es que los parámetros son una parte de la definición de la función, mientras que los argumentos son los valores que se pasan a la función cuando se llama a la misma.
+
+## Ejemplo de parámetros:
+---
+Donde los parámetros serían **numero1** y **numero2**:
+
+```python
+# Definimos nuestra función, con dos parámetros numero1 y numero2
+def sumar_dos_numeros(numero1, numero2):
+    """
+    Esta función suma dos números y devuelve el resultado.
+
+    Args:
+        numero1 (float): El primer número a sumar.
+        numero2 (float): El segundo número a sumar.
+
+    Returns:
+        float: La suma de los dos números.
+    """
+    # Sumamos los dos números y almacenamos el resultado en una variable local, resultado
+    resultado = numero1 + numero2
+
+    # Utilizamos return para devolver el resultado al punto de llamada de la función.
+    return resultado
+```
+
+Donde **3** y **5** son los argumentos que pasamos a la función cuando la invocamos y hacen referencia a los parámetros numero1 y numero2 que son los parámetros que habíamos definido al definir la función:
+
+```python
+# llamamos a nuestra funcion:
+suma_prueba = sumar_dos_numeros(3, 5)
+# Aquí tenemos los argumentos: 3, 5 que hacen referencia a numero1, numero2
+print(suma_prueba )
+
+# Output esperado: 8 
+```
+
+## Funciones básicas: Funciones sin parámetros
+---
+Son aquellas funciones que no van a recibir ningún parámetro, es decir, no pondremos nada entre los paréntesis al definir la función.
+
+En este caso tenemos una función sin parámetros y sin return, sólo realizará los pasos indicados dentro de la función, hacer un ***print()*** de la variable local y no nos devolverá nada.
+```python
+# Definimos la función llamada funcion_sin_parametros
+def funcion_sin_parametros():
+    """
+    Esta función imprime el valor de la variable local x, que es 2.
+    """
+    # Asignamos el valor 2 a la variable local x
+    x = 2
+    # Imprimimos el valor de x dentro de la función
+    print(f'El valor de x dentro de la función es: {x}')
+
+# Llamamos a la función y almacenamos el mensaje impreso en la variable mensaje
+mensaje = funcion_sin_parametros()
+
+# Output esperado:
+# El valor de x dentro de la función es 2
+```
+
+### ¿Qué pasa si imprimimos la variable mensaje del ejemplo anterior?
+
+Una función sin return al final no devuelve nada, es decir, nos devuelve **None**.
+
+```python
+# Definimos la función llamada funcion_sin_parametros
+def funcion_sin_parametros():
+    """
+    Esta función imprime el valor de la variable local x, que es 2.
+    """
+    # Creamos una variable local llamada x con el valor 2
+    x = 2
+    # Imprimimos el valor de x dentro de la función
+    print(f'El valor de x dentro de la función es {x}')
+
+# Llamamos a la función y almacenamos el resultado en la variable mensaje
+mensaje = funcion_sin_parametros()
+
+# Imprimimos el valor de mensaje
+print(f'Mensaje es igual a: ', mensaje)
+
+# Output esperado:
+# El valor de x dentro de la función es 2
+# Mensaje es igual a:  None
+```
+
+## Funciones básicas: Funciones con parámetros.
+---
+Son aquellas funciones que van a recibir uno o más parámetros entre los paréntesis.**Ventajas** de las funciones con parámetros:
+
+## Funciones básicas: Funciones con un parámetro.
+---
+Son funciones que aceptan un único parámetro. Estos parámetros son variables que se utilizan para pasar información a la función cuando es llamada. Dentro del cuerpo de la función, el parámetro se comporta como una variable local, lo que significa que su alcance está limitado a la función en la que se define.
+
+Cuando se llama a una función con un parámetro, se proporciona un argumento para ese parámetro. Este argumento se utiliza dentro del cuerpo de la función para realizar cálculos, ejecutar operaciones o cualquier otra tarea que la función esté diseñada para realizar
+
+Veamos un ejemplo:
+
+```python
+def es_impar(lista):
+    """
+    Esta función verifica si los elementos en una lista son impares y los devuelve en otra lista.
+
+    Args:
+        lista (list): Una lista de números enteros.
+
+    Returns:
+        list: Una lista que contiene los números impares de la lista proporcionada.
+    """
+    # Creamos una variable local, dentro de la función, de tipo lista para almacenar los números impares
+    lista_impares = []
+    # Hacemos un bucle for para comprobar si es impar en la lista del parámetro
+    for elemento in lista:
+        if elemento % 2 != 0:
+            lista_impares.append(elemento)
+        else:
+            pass
+    return lista_impares
+```
+
+Pongamos en uso la función que acabamos de definir
+
+```python
+# Creamos dos listas de números que le pasaremos a la función como argumento
+lista_numeros1 = [2, 6, 8, 4, 7, 10]
+lista_numeros2 = [3, 6, 7, 14, 31, 24]
+
+# Llamamos a la función dos veces, una para cada lista
+lista_impares1 = es_impar(lista_numeros1)
+lista_impares2 = es_impar(lista_numeros2)
+
+# Imprimimos las listas de números impares resultantes
+print(f'La primera lista de impares es: ', lista_impares1)
+print(f'La segunda lista de impares es: ', lista_impares2)
+
+# Output esperado:
+# La primera lista de impares es:  [7]
+# La segunda lista de impares es:  [3, 7, 31]
+```
+
+## Funciones básicas: Funciones con más de un parámetro
+---
+Cuando se define una función con múltiples parámetros, estos se separan por comas dentro de los paréntesis de la definición de la función. Cuando se llama a la función, se proporciona un argumento para cada uno de los parámetros en el mismo orden en que fueron definidos.
+
+```python
+def calcular_area_rectangulo(base, altura):
+    """
+    Esta función calcula el área de un rectángulo dado su base y altura.
+
+    Args:
+        base (float): La longitud de la base del rectángulo.
+        altura (float): La altura del rectángulo.
+
+    Returns:
+        float: El área del rectángulo.
+    """
+    return base * altura
+```
+
+Declaramos una nueva variable, área, para invocar nuestra función y mostramos el resultado por terminal.
+
+```python
+# Llamamos a la función con valores específicos para la base y la altura
+area = calcular_area_rectangulo(5, 3)
+# Imprimimos el resultado
+print(area)  # Output: 15
+```
+
+## Funciones básicas: Funciones con un parámetro por defecto
+---
+Son funciones que permiten asignar valores predeterminados a uno o más de sus parámetros. Esto significa que si el valor para ese parámetro no se proporciona al llamar a la función, se utilizará el valor predeterminado.
+
+En Python, se puede asignar un valor por defecto a un parámetro colocando un valor de asignación después del nombre del parámetro en la definición de la función.
+
+Vemos un ejemplo de como definir una función con un parámetro por defecto. Nuestro parámetro por defecto será nombre = "Amigo”
+
+```python
+def saludar(nombre="Amigo"):
+    """
+    Esta función devuelve un mensaje de saludo personalizado.
+
+    Args:
+        nombre (str, opcional): El nombre de la persona a saludar. Por defecto es "Amigo".
+
+    Returns:
+        str: El mensaje de saludo.
+    """
+    return f"Hola, {nombre}!"
+```
+
+Ponemos en uso nuestra función. Primero con el parámetro por defecto y luego sustituyendo cambiándolo por alumni:
+
+```python
+# Llamamos a la función sin especificar un nombre, por lo que se usará el valor por defecto "Amigo"
+mensaje = saludar()
+# Imprimimos el mensaje de saludo
+print(mensaje)
+# Output: Hola, Amigo!
+# Llamamos a la función especificando alumni como argumento
+mensaje_alumni = saludar("alumni")
+print(mensaje_alumni)
+# Output: Hola, alumni!
+```
+
+## Funciones con un número variable de parámetros
+---
+En muchas ocasiones, sabemos de antemano cuántos argumentos necesita nuestra función para operar. Sin embargo, hay situaciones donde no podemos prever cuántos parámetros se necesitarán al invocar la función. Para abordar esta flexibilidad, Python nos permite crear **funciones con un número variable de parámetros**.
+
+Esto nos va a resultar muy útil cuando no queremos restringir el número de argumentos que una función puede recibir. En lugar de definir una cantidad fija de parámetros, vamos a aprender como podemos adaptar nuestras funciones a diferentes cantidades de argumentos.
+
+- **args** y **`*kwargs`** son convenciones de nomenclatura utilizadas para permitir una mayor flexibilidad al definir funciones con un número variable de parámetros, es decir, podríamos utilizar otras palabras distintas precedidas de uno o dos asteriscos pero son buenas prácticas utilizar las convenciones de nomenclatura.
+
+- **`*args`** se utiliza para pasar un número **variable** de **argumentos posicionales** a una función. La expresión **`*args`** desempaqueta los argumentos proporcionados y los pasa a la función como una tupla. Esto permite que la función maneje un número arbitrario de argumentos sin especificarlos individualmente al definir la función.
+
+- **`**kwargs`** se utiliza para pasar un número **variable** de **argumentos clave-valor** a una función. La expresión **`**kwargs`** desempaqueta los argumentos **clave-valor** proporcionados y los pasa a la función como un diccionario. Esto permite que la función maneje un conjunto flexible de argumentos con nombres y valores asociados.
+
+## Funciones con args
+---
+**`*args`** nos permite pasar cualquier número de argumentos posicionales a una función sin limitarnos a un número fijo. Si nosotros definimos una función con sólo tres argumentos, no nos permitirá pasar un cuarto ni pasar solo dos. Esto se soluciona indicando como argumentos de la función **`*args`**
+
+Si invocamos la siguiente función con cuatro argumentos recibiremos un error, que nos indica que hemos dado demasiados argumentos:
+
+```python
+# Ejemplo de una función con argumentos limitados:
+
+def nombres_clase(nombre1, nombre2, nombre3):
+    """
+    Esta función imprime los nombres de las personas de la clase.
+
+    Args:
+        nombre1 (str): El nombre de la primera persona.
+        nombre2 (str): El nombre de la segunda persona.
+        nombre3 (str): El nombre de la tercera persona.
+    """
+    print(f'Los nombres de las personas de la clase son {nombre1}, {nombre2}, {nombre3}')
+```
+
+Ejemplo de uso de la función anterior:
+
+```python
+# Definimos 4 nombres en vez de 3
+nom_ej1 = "Lidia"
+nom_ej2 = "Victor"
+nom_ej3 = "Alberto"
+nom_ej4 = "David"
+
+# Llamamos a la función con un argumento de más, nom_ej4
+nombres_clase_ej = nombres_clase(nom_ej1, nom_ej2, nom_ej3, nom_ej4)
+
+# Output esperado:
+# TypeError: nombres_clase() takes 3 positional arguments but 4 were given
+```
+
+Esto se soluciona mediante el uso de **`*args`** que nos permite pasar a la función cualquier número de argumentos:
+
+```python
+def nombres_clase(*args):
+    """
+    Esta función imprime los nombres de las personas de la clase.
+
+    Args:
+        *args (tuple): Una tupla que contiene los nombres de las personas de la clase.
+    """
+    print(f'Los nombres de las personas de la clase son {args}')
+```
+
+Ejemplo de uso de la función anterior:
+
+```python
+# Definimos 4 nombres
+nom_ej1 = "Lidia"
+nom_ej2 = "Victor"
+nom_ej3 = "Alberto"
+nom_ej4 = "David"
+
+# Llamamos a la función
+nombres_clase_ej = nombres_clase(nom_ej1, nom_ej2, nom_ej3, nom_ej4)
+
+# Output esperado:
+# Los nombres de las personas de la clase son ('Lidia', 'Victor', 'Alberto', 'David')
+```
+
+## Funciones con kwargs
+---
+**`**kwargs`**, de manera muy similar a *args, nos permite pasar cualquier número de argumentos calve-valor a una función sin limitarnos a un número fijo.
+
+Ejemplo de una función que trabaja con argumentos clave-valor, **`sin **kwargs`**:
+
+```python
+def imprimir_info(nombre, edad, ciudad, profesion):
+    """
+    Esta función imprime la información personal de una persona.
+
+    Args:
+        nombre (str): El nombre de la persona.
+        edad (int): La edad de la persona.
+        ciudad (str): La ciudad de residencia de la persona.
+        profesion (str): La profesión de la persona.
+
+    """
+    print(f'Nombre: {nombre}')
+    print(f'Edad: {edad}')
+    print(f'Ciudad: {ciudad}')
+    print(f'Profesión: {profesion}')
+```
+
+Ejemplo de uso de la función anterior. Recibiremos un error, que nos indica que hemos dado demasiados argumentos:
+
+```python
+# Llamamos a la función con argumentos de palabras clave
+imprimir_info(nombre='Juan',
+							edad=30,
+							ciudad='Madrid',
+							profesion='Ingeniero',
+							apellido = 'Garcia')
+
+# Output esperado:
+# TypeError: imprimir_info() got an unexpected keyword argument 'apellido'
+```
+
+Esto se soluciona mediante el uso de **kwargs que nos permite pasar a la función cualquier número de argumentos **clave-valor**:
+
+```python
+def imprimir_info(**kwargs):
+    """
+    Esta función imprime la información personal de una persona.
+
+    Args:
+        **kwargs (dict): Argumentos de palabras clave que contienen información personal.
+    """
+    for key, value in kwargs.items():
+        print(f'{key}: {value}')
+```
+
+Ejemplo de uso de la función anterior:
+
+```python
+# Llamamos a la función con varios argumentos de palabras clave
+imprimir_info(nombre='Juan',
+							edad=30,
+							ciudad='Madrid',
+							profesion='Ingeniero',
+							apellido = 'Garcia')
+
+# Output esperado:
+# nombre: Juan
+# edad: 30
+# ciudad: Madrid
+# profesion: Ingeniero
+# apellido: Garcia
+```
+
+## Ventajas de los kwargs frente a los args:
+---
+**Claridad y legibilidad:** Al utilizar **`*kwargs`**, podemos pasar argumentos de palabras clave explícitos que proporcionan información clara sobre el propósito de cada argumento. Esto hace que nuestro código sea más legible y comprensible, especialmente cuando trabajamos con funciones que tienen muchos argumentos.
+
+**Flexibilidad:** Al permitir argumentos de palabras clave, podemos extender la funcionalidad de una función sin necesidad de modificar su definición. Podemos agregar nuevos argumentos de palabras clave a medida que sean necesarios sin afectar el código existente que llama a la función.
+
+**Evita errores de posición:** Con **`*kwargs`**, no tenemos que preocuparnos por el orden de los argumentos pasados a la función, ya que se accede a ellos por sus claves en lugar de sus posiciones. Esto ayuda a prevenir errores comunes cuando se invierten los argumentos posicionales.
+
+## Cuando usamos args y kwargs:
+---
+**args:**
+
+- Cuando queremos permitir un número variable de argumentos posicionales.
+
+- Cuando no necesitamos asignar nombres o claves específicas a los argumentos pasados.
+
+- Cuando los argumentos se pueden tratar como una secuencia y el orden es importante.
+
+**kwargs:**
+
+- Cuando queremos permitir un número variable de argumentos de palabras clave.
+
+- Cuando necesitamos asignar nombres o claves específicas a los argumentos pasados.
+
+- Cuando los argumentos se pueden tratar como pares clave-valor y el orden no es relevante.
+
+## Funciones recursivas
+---
+Una función recursiva es una función que se llama a sí misma durante su propia ejecución. Esto permite que la función se repita o resuelva un problema más pequeño dentro de sí misma hasta que se cumpla una condición de terminación.
+
+Para que una función recursiva funcione correctamente, debe tener dos componentes esenciales:
+
+- Caso base: Es la condición que indica cuándo la función debe dejar de llamarse a sí misma y finalizar la recursión.
+
+- Caso recursivo: Es el caso en el que la función se llama a sí misma para resolver un problema más pequeño y se acerca al caso base.
+
+Vamos a ver un ejemplo de una función recursiva: una cuenta atrás.
+
+```python
+def cuenta_atras(inicio):
+    """
+    Esta función realiza una cuenta atrás a partir del número especificado como argumento.
+
+    Args:
+        inicio (int): El número a partir del cual comenzar la cuenta atrás.
+
+    Returns:
+        None
+    """
+    # Imprimimos el número por el que empezamos la cuenta atrás
+    print(inicio)
+
+    # Definimos la variable siguiente como el número siguiente al inicio
+    siguiente = inicio - 1
+
+    # Establecemos la condición para continuar la cuenta atrás si el siguiente número es mayor que 0
+    if siguiente > 0:
+        # Llamamos a la función nuevamente, recursividad, para continuar la cuenta atrás
+        cuenta_atras(siguiente)
+
+# Invocamos a la función para iniciar la cuenta atrás desde 10
+cuenta_atras(10)
+```
+
+## Funciones Lambdas
+---
+Las funciones **lambda** son una forma de definir funciones **pequeñas y anónimas** que pueden ser utilizadas en cualquier lugar donde se requiera una función.
+
+A diferencia de las funciones normales, las lambdas no se definen con la palabra clave **def**, sino que se crean utilizando la palabra clave **lambda**.
+
+Son útiles cuando necesitamos crear una función que sólo tendrá que usarse una vez y puede escribirse en una sola línea.
+
+Una de las utilidades principales de las funciones lambda es la optimización de memoria, no guardando la función una vez utilizada.
+
+## Sintaxis básicas de las funciones Lambda
+---
+
+```python
+lambda argumentos: expresion
+# Donde argumentos son los argumentos que se pasan a la lambda
+#(separados por comas)
+# y expresion es la operación que se realiza en la lambda.
+# La expresión debe ser una única instrucción que se ejecuta al llamar a la lambda.
+```
+
+## Funciones Lambda con un parámetro
+---
+Vamos a hacer una función que divida un número entre 3. Si lo hiciéramos sin usar **lambda** quedaría de la siguiente manera:
+
+```python
+def dividir_tres(numero):
+
+    # Dividimos el número entre tres y retornamos el resultado
+    return numero / 3
+
+# Llamamos a la función con un número como argumento e imprimimos el resultado
+print(f'El resultado de la función dividir entre tres es: ', dividir_tres(12))
+
+# Output esperado:
+# El resultado de la función dividir entre tres es:  4.0
+```
+
+Si lo hiciéramos usando una función **lambda**. Donde x es el **parámetro** que será el número que dividimos entre 3.
+
+```python
+# Definimos una función lambda llamada division que divide un número entre tres
+division = lambda x: x / 3
+
+# Llamamos a la función lambda con un número como argumento
+# e imprimimos el resultado
+print(f'El resultado de la función dividir entre tres es: ', division(12))
+
+# Output esperado:
+# El resultado de la función dividir entre tres es:  4.0
+```
+
+## Función Lambda con más de un parámetro
+---
+Ahora vamos a definir una función para sumar dos números que pasaremos como parámetros. Primero vamos a verlo sin usar una función **lambda**:
+
+```python
+def sumar_dos_numeros(numero1, numero2):
+
+    # Sumamos los dos números y retornamos el resultado
+    return numero1 + numero2
+
+print(f'El resultado de la suma es: {sumar_dos_numeros(12, 3)}')
+
+# Output esperado:
+# El resultado de la suma es:  15
+```
+
+Si lo hiciéramos usando una función **lambda**. Donde x e y serán los números que pasamos como parámetros
+
+```python
+suma = lambda x, y: x + y
+
+print(suma(12, 3))
+
+# Output esperado:
+# 15
+```
+
+Vamos a ver un ejemplo más complicado. Queremos una función que reciba una lista de números como parámetro y devuelva cuál de esos números es divisible entre 3. Primero vamos a verlo con una función sin lambda.
+
+```python
+def divisible_entre_tres(lista_numeros):
+    lista_div_3 = []
+    for elemento in lista_numeros:
+        if elemento % 3 == 0:
+            lista_div_3.append(elemento)
+        else:
+            continue
+
+    return lista_div_3
+
+lista_num_prueba = [34, 39, 12, 15 , 16, 19]
+lista_numeros_entre3 = divisible_entre_tres(lista_num_prueba)
+print(lista_numeros_entre3)
+
+# Output esperado:
+# [39, 12, 15]
+```
+
+Vamos a ver como usar una función **lambda** para realizar la misma operación que en el paso anterior, donde **lista** es el parámetro que recibe la función lambda y luego iteramos por cada elemento de esa lista usando una **list comprehension**.
+
+```python
+# Definimos una función lambda llamada funcion_lambda_div3 que filtra los elementos de una lista para obtener los que son divisibles entre 3
+funcion_lambda_div3 = lambda lista: [elemento for elemento in lista if elemento % 3 == 0]
+
+# Creamos una lista de números de prueba
+lista_num_prueba = [34, 39, 12, 15, 16, 19]
+
+# Llamamos a nuestra función lambda con la lista de números de prueba y almacenamos el resultado
+lista_numeros_entre3 = funcion_lambda_div3(lista_num_prueba)
+
+# Imprimimos la lista resultante
+print(lista_numeros_entre3)
+
+# Output esperado:
+# [39, 12, 15]
+```
+
+## Funciones map(), filter() y reduce()
+---
+**Map**, **filter** y **reduce** son funciones de python que permiten escribir código de forma más escueta y simple, sin necesidad de utilizar herramientas como bucles. Basicamente, permiten aplicar una función a varios elementos de un iterable (lista, set, tuplas, diccionario, etc) de una sola vez. Son comúnmente utilizadas con funciones ***lambda*** o ***list comprehensions***.
+
+**Map** y **filter** vienen integradas con Python y no son necesarias ser importadas. Sin embargo, **reduce** necesita ser importado, ya que se encuentra en el módulo **functools**.
+
+## Función map()
+---
+La función **map()** toma dos parámetros, una función como primer parámetro y la aplica a todos los elementos de un iterable,segundo parámetro, como puede ser una lista o una tupla. Es decir, nos va a permitir aplicar una función a cada elemento de una secuencia (como listas, tuplas, conjuntos, entre otros) y devolver un objeto que contiene los resultados. Aunque su uso básico es bastante directo, **map** ofrece muchas posibilidades avanzadas para la manipulación y transformación de datos en aplicaciones complejas.
+
+La sintaxis básica del map es:
+
+- **funcion**: La función que se aplicará a cada elemento del iterable.
+
+- **iterable**: Una o más secuencias cuyos elementos serán procesados por la función.
+
+```python
+map(funcion, iterable)
+```
+
+Vamos a ver un ejemplo de una función para calcular el cuadrado de un número:
+
+```python
+def sqr(num):
+    """
+    Calcula el cuadrado de un número.
+
+    Params:
+        - num (int o float): El número que se desea elevar al cuadrado.
+
+    Returns:
+        int o float: El cuadrado del número proporcionado.
+    """
+    return num**2
+```
+
+Vamos a usar la función para calcular el cuadrado de un número que acabamos de crear usando la función map() y aplicarla a cada elemento de una lista de números.
+
+```python
+# definimos una lista de números sobre la que queramos aplicar dicha función.
+numeros = [1,2,3,4,5]
+print(f"la lista original antes de elevar cada elemento al cuadrado es: {numeros}")
+
+# utilizamos el map para ejecutar dicha función a todos los elementos de nuestra lista numbers.
+resultado_map = map(sqr,numeros)
+print(f"El resultado de la función map es: {resultado_map}")
+
+# si nos fijamos en valor que toma la variable 'resultado_map'
+# es un objeto, como nos pasaba cuando usamos la función zip.
+# vamos a convertir en lista (lo podríamos convertir a tupla o set)
+lista_resultado_map = list(map(sqr,numeros))
+print(f"El resultado de la función map después de convertilo a lista es: {lista_resultado_map}")
+```
+
+Si solo fuéramos a hacer uso de la función para calcular el cuadrado de un número una sola vez, en vez de definir la función podríamos hacer uso de una función **lambda**:
+
+- resultado_map_lambda es la variable donde vamos a guardar el resultado.
+
+- list transforma el resultado de aplicar el map en una lista.
+
+- map es la función que recibe de de argumentos una función y un iterable.
+
+- lambda x: x**2 es la función que calcula el cuadrado de un número, primer argumento que recibe map().
+
+- numeros es la lista de números sobre la que queremos aplicar la función lambda, es el segundo argumento que recibe map().
+
+```python
+numeros = [1,2,3,4,5]
+resultado_map_lambda = list(map(lambda x: x**2,numeros))
+print(f"El resultado de la función map usando lambda es: {resultado_map_lambda}")
+```
+
+## Ventajas de usar la función map()
+---
+- Permite escribir código más corto y declarativo, enfocándose en lo que se quiere hacer en lugar de cómo hacerlo, lo que resulta en un código más limpio y conciso.
+
+- Es una función de orden superior, lo que promueve la modularidad y la reutilización del código, características clave de la programación funcional.
+
+- **map** devuelve un iterador que evalúa los elementos bajo demanda (lazy evaluation), lo que puede ser más eficiente en términos de memoria cuando se trabaja con grandes conjuntos de datos.
+
+- Puede aceptar múltiples iterables y aplicar la función a sus elementos en paralelo, similar a la **función zip**.
+
+- Es útil para aplicar funciones predefinidas (como str, int, etc.) a cada elemento de un iterable de manera concisa.
+
+- Promueve el uso de estructuras de datos inmutables, lo que puede llevar a un código más seguro y fácil de razonar, ya que se evita modificar listas u otros objetos en el lugar.
+
+## Desventajas de usar la función map()
+---
+- En algunos casos, especialmente cuando se usan funciones lambda complejas, map puede ser menos legible que un bucle for. Para operaciones muy simples, un bucle for puede ser más fácil de entender para principiantes.
+
+## Función filter()
+---
+Mientras que la función **map()** pasa cada elemento del iterable a través de una función y devuelve el resultado de todos los elementos después de haber ejecutado la función, **filter()** requiere que la función devuelva valores booleanos (**True** o **False**) y luego pasa cada elemento del iterable a través de la función, "filtrando" aquellos que son falsos y ejecutando sólo los que cumplan la condición. Es decir, nos permite seleccionar elementos de una secuencia que cumplen con una condición específica.
+
+La sintaxis básica del filter es:
+
+- **funcion**: será la función que queramos aplicar a cada elemento de nuestro iterable.
+
+- **iterable**: será el elemento iterable(lista, tupla, set, etc) que queramos filtrar.
+
+```python
+filter(función, iterable)
+```
+
+Vamos a ver un ejemplo de una función que nos devuelva los números primos de una lista:
+
+```python
+def primos (num):
+    """
+    Esta función verifica si un número es primo (Dívisible únicamente por sí mismo y por 1) o no.
+
+    Params:
+        - num (int): El número a verificar.
+
+    Returns:
+        bool: True si el número es primo, False de lo contrario.
+    """
+    #Primero creamos un rango entre 2 y el número pasado a la función para comprobar si son divisibles
+    for i in range (2,num):
+
+       #Como las divisiones se están realizando entre todo los números entre el 2 y num-1 en el momento que se cumpla la condición se rechaza el número, ya que no sería primo
+       if (num % i) == 0:
+          return False
+
+    #Si no se ha cumplido la condición, el número es primo y devuelve True
+    return True
+```
+
+Vamos a usar la función para ver los primos que acabamos de crear usando la función filter() y aplicarla a cada elemento de una lista de números.
+
+```python
+# definimos nuestra lista de números.
+numeros = [4,8,15,16,23,42]
+
+#Utilizamos el filter para ejecutar dicha función a todos los elementos de nuestra lista numeros.
+# Al igual que en el map, tendremos que convertir el resultado de la función filter en lista para convertir el objeto que nos devuelve.
+
+resultado_filter = list(filter(primos,numeros))
+print(f"El resultado de la función filter es: {resultado_filter}")
+```
+
+También podemos usar la función **filter()** con diccionarios:
+
+```python
+# Creamos una varible con nuestro diccionario
+estudiantes = {
+    'Ana': 17,
+    'Juan': 21,
+    'Luis': 19,
+    'María': 15,
+    'Elena': 22
+}
+
+# Creamos una función para comprobar si los estudiantes son o no mayores de edad
+def es_mayor_de_edad(estudiante):
+    nombre, edad = estudiante
+    return edad > 18
+
+# Filtramos los estudiantes mayores de edad
+estudiantes_mayores_de_edad = dict(filter(es_mayor_de_edad, estudiantes.items()))
+
+print(f'Los estudiantes mayores de edad son :{list(estudiantes_mayores_de_edad.keys())}')
+```
+
+O podemos usarlo con una función **lambda** y en conjunto con la función **map**, pero vemos que el código empieza hacerse más complicado de entender:
+
+- print() nos muestra por terminal el resultado
+
+- list() convierte en lista el resultado de la función map()
+
+- map() recibe una función lambda que aplicará a cada elemento de un iterable que es el resultado de usar filter()
+
+- lambda y: y*2 es una función que multiplica un número por 2
+
+- filter() recibe otra función lambda que se aplica a cada elemento de un iterable, en este caso numeros. Filtrará los número divisibles entre dos
+
+- lambda x: x % 2 == 0 que evalua si un número es divisible entre 2
+
+- numeros es una lista de números.
+
+```python
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(list(map(lambda y: y*2,filter(lambda x: x % 2 == 0, numeros))))
+```
+
+## Ventajas de usar la función filter()
+---
+- Permite escribir código más corto y declarativo, centrándose en la condición que deben cumplir los elementos, lo que resulta en un código más limpio y conciso.
+
+- **filter()** es una función de orden superior, lo que promueve la modularidad y la reutilización del código, características clave de la programación funcional.
+
+- Devuelve un iterador que evalúa los elementos bajo demanda (lazy evaluation), lo que puede ser más eficiente en términos de memoria cuando se trabaja con grandes conjuntos de datos.
+
+- Facilita la aplicación de funciones predefinidas y condiciones lógicas a cada elemento de un iterable de manera concisa.
+
+## Desventajas de usar la función filter()
+---
+- Cuando se usan condiciones complejas, filter puede ser menos legible que un bucle for como hemos visto en el último ejemplo.
+
+## Función reduce()
+---
+La función **reduce()** toma una función y un iterable, y aplica la función a los dos primeros elementos, almacena el resultado, luego aplica la función al resultado y al siguiente elemento, y así sucesivamente, hasta que todos los elementos hayan sido procesados. **El resultado es un único valor**.
+
+Al contrario que en el caso de las funciones **map()** y **filter()** la función **reduce()** no está integrada en Python, por lo tanto, es necesario importarla usando el módulo **functools**, el cual es un módulo estándar que ofrece una variedad de funciones que operan sobre otras funciones. Aunque las funciones del módulo son bastante diversas entre sí, todas comparten la característica de operar sobre otras funciones.
+
+La sintaxis básica del reduce es:
+
+- **funcion**: será la función que queramos aplicar a cada elemento de nuestro iterable.
+
+- **iterable**: será el elemento iterable(lista, tupla, set, etc) que queramos 'reducir'.
+
+```python
+reduce(función, iterable)
+```
+
+Vamos a ver como aplicar una función que nos devuelva el número más alto entre dos opciones:
+
+```python
+# Primero importamos la función reduce
+from functools import reduce
+
+#Creamos una función que nos devuelva el número más alto
+def numero_alto(num_1,num_2):
+    """
+    Esta función devuelve el número más alto de una lista de números
+
+    Params:
+        - num_1 (int): Primer número a comparar
+        - num_2 (int): Segundo número a comparar
+
+    Returns:
+        num_1 ó num_2: En función de cuál de los dos sea más alto
+    """
+    if int(num_1) > num_2:
+        return num_1
+    else:
+        return num_2
+```
+
+Vamos a usar la función que acabamos de crear usando la función reduce() y aplicarla a cada elemento de una lista de números.
+
+```python
+#Definimos una nueva lista de números
+numeros = [23, 1, 45, 78, 5, 12, 98, 34, 67, 3, 56, 42, 89, 15, 7]
+
+resultado_reduce = reduce(numero_alto, numeros)
+print(f"El resultado de la función reduce es: {resultado_reduce}")
+```
+
+Al igual que con las funciones **map()** y la función **filter()**, podemos usar la función **reduce()** en conjunto con las lambdas:
+
+- reduce() recibe dos argumento, una función lambda y un iterable números.
+
+- lambda x, y: x if x > y else y, que comprueba si x es mayor que y.
+
+- numeros, es el iterable con los elementos sobre los que aplicamos la función lambda.
+
+```python
+numeros = [23, 1, 45, 78, 5, 12, 98, 34, 67, 3, 56, 42, 89, 15, 7]
+# Podemos usar reduce con una función lambda
+resultado_reduce_lambda = reduce(lambda x, y: x if x > y else y, numeros)
+print(f"El resultado de la función reduce usando lambdas es: {resultado_reduce_lambda}")
+```
+
+## Ventajas de usar la función reduce()
+---
+- Permite escribir código más corto y declarativo, enfocándose en la acumulación de resultados, lo que resulta en un código más limpio y conciso.
+
+- Es una función de orden superior, lo que promueve la modularidad y la reutilización del código, características clave de la programación funcional.
+
+- Facilita la aplicación de funciones acumulativas a los elementos de un iterable, permitiendo operaciones como sumas, productos y concatenaciones de manera más directa.
+
+- Es especialmente útil para aplicar operaciones de reducción en secuencias, como encontrar máximos, mínimos o calcular totales, de forma eficiente.

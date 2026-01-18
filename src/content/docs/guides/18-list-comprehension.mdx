@@ -1,0 +1,111 @@
+---
+title: List comprehension
+---
+La compresión de listas o list comprehension es una forma compacta y elegante de crear listas a partir de otras listas o iterables en una sola línea de código. Son más rápidas que los bucles for. La sintaxis de las comprensiones de lista es más fácil de leer y entender. La sintaxis es la siguiente:
+
+```Python
+nuestra_lista = [elemento for elemento in iterable]
+# Donde elemento es cada uno de los elementos de un iterable
+```
+
+**Vamos a ver algunos ejemplos:**
+
+List comprehension *con un bucle for:*
+
+```Python
+# Ejemplo de una lista creada con un bucle for sin comprimir:
+# Definimos una lista vacía:
+lista_vacia =[] 
+
+# Generamos una secuencia de numeros del 0 al 999
+for elemento in range(1000):
+	# agregamos cada elemento a lista_vacia
+	lista_vacia.append(elemento)
+
+# Mostramos por terminal la longitud de lista_vacia despues de el bucle for
+print(f'La longitud de mi lista es: {len(lista_vacia)}')
+
+# Output esperado:
+# La longitud de mi lista es: 1000
+```
+
+```Python
+# Ejemplo de una lista creada con un bucle for mediante compresión de listas
+# Definimos una lista de 1000 elementos usando list comprehension y la funcion range()
+lista_1000_elem =[elemento for elemento in range(1000)]
+
+# Mostramos por terminal la longitud de la lista
+print(f'La longitud de mi lista es: {len(lista_1000_elem)}')
+
+# Output esperado:
+# La longitud de mi lista es: 1000
+```
+
+List comprehension con if y for:
+
+```Python
+# Ejemplo de una lista creada con un if y un for sin comprimir:
+# Definimos una lista vacía:
+lista_vacia2 =[]
+
+# Generamos una secuencia de numeros del 0 al 999
+for elemento in range(1000):
+	# si el elemento es mayor que 50, lo agregamos a lista_vacia2
+	if elemento > 50:
+		lista_vacia2.append(elemento)
+
+# Mostramos por terminal la longitud de la lista
+print(f'La longitud de mi lista es: {len(lista_vacia2)}')
+
+# Output esperado:
+# La longitud de mi lista es: 949
+```
+
+```Python
+# Ejemplo de una lista creada con un if y un for mediante compresión de listas
+# Definimos una lista mediante list comprehension, la funcion range() y con una condición
+lista_mayor_50 = [elemento for elemento in range(1000) if elemento > 50]
+
+# Mostramos por terminal la longitud de la lista
+print(f'La longitud de mi lista es: {len(lista_mayor_50)}')
+
+# Output esperado:
+# La longitud de mi lista es: 949
+```
+
+List comprehension con if... else : al contrario que en el anterior ejemplo primero ponemos el if y el else y luego el for . El elif no lo podemos incluir ya que las list comprehensions están diseñadas para ser cortas y sencillas.
+
+```Python
+# Ejemplo de una lista creada con un if, un else y un for sin comprimir:
+# Definimos una lista vacía:
+lista_vacia3 =[]
+
+# Generamos una secuencia de numeros del 0 al 9
+for elemento in range(10):
+	# si el número es divisible entre 2
+	if elemento % 2 == 0:
+		# agregamos la palabra "par" a la lista
+		lista_vacia3.append('par')
+	else:
+		# si no agregamos la palabra "impar"
+		lista_vacia3.append('impar')
+
+# Mostramos por terminal la lista
+print(f'Mi lista es: {lista_vacia3}')
+
+# Output esperado:
+# Mi lista es: ['impar', 'par', 'impar', 'par', 'impar', 'par', 'impar', 'par', 'impar', 'par']
+```
+
+```Python
+# Ejemplo de una lista creada con un if, un else y un for mediante compresión de listas
+# Definimos una lista mediante list comprehension, la funcion range() y dos condiciones
+lista_par_impar =['par' if elemento % 2 else 'impar' for elemento in range(10)]
+
+print(f'Mi lista es: {lista_par_impar}')
+
+# Output esperado:
+# Mi lista es: ['impar', 'par', 'impar', 'par', 'impar', 'par', 'impar', 'par', 'impar', 'par']
+```
+
+La *list comprehension* es una técnica en Python que permite crear listas de manera compacta y eficiente a partir de otros iterables, como listas o rangos. Se utiliza para aplicar una operación a cada elemento del iterable, generando una nueva lista con los resultados. También permite incluir condiciones para filtrar elementos, lo que hace que el código sea más legible y fácil de escribir en comparación con bucles tradicionales.

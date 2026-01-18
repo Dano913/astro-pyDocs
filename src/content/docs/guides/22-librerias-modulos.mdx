@@ -1,0 +1,381 @@
+---
+title: Librerías y módulos
+---
+
+## ¿Qué es una librería en Python?
+---
+Una librería o módulo en Python es un conjunto de variables, funciones y clases que se almacenan en archivos a los que podemos acceder e importar en nuestros programas para utilizar ese código sin necesidad de desarrollarlo nosotros.
+
+## Librerías integradas:
+---
+Son librerías vienen preinstaladas con Python y están disponibles sin necesidad de instalar nada adicional. Por ejemplo:
+
+- La librería **math**: Proporciona funciones matemáticas avanzadas.
+
+- La librería **os**: Permite interactuar con el sistema operativo.
+
+## Librerías externas:
+---
+Estas librerías tenemos que instalarlas manualmente utilizando herramientas como **pip**. Algunos ejemplos de librerías externas son:
+
+- **numpy**: Para operaciones matemáticas más avanzadas aún que math.
+
+- **pandas**: Para análisis de datos y manipulación de tablas.
+
+📌 Estas librerías son ampliamente utilizadas dentro del mundo del dato y las veremos en profundidad a lo largo del programa.
+
+Para instalarlas tendremos que usar el siguiente comando:
+
+```Python
+pip install numpy pandas
+```
+
+## Sintaxis básica de las librerías
+---
+La sintaxis básica de las librerías es sencilla. Vamos a ver dos formas:
+
+**Importando la librería al completo:** nos permite acceder a todas sus funcionalidades como si fueran métodos.
+
+- Primero importamos la librería usando import
+
+- Usamos los métodos contenidos en la librería. Para usar un método de una librería nombraremos primero la librería seguida de un punto y el nombre del método que queremos usar, seguido de unos paréntesis dentro de los que pasaremos los argumentos necesarios.
+
+```Python
+# Importamos la libreía para operaciones matemáticas
+import math
+
+# Definimos una variable y aplicamos el método sqrt() que calcula la raíz cuadrada
+numero1 = 36
+raiz_numero1 = math.sqrt(numero1)
+print(f'La raiz cuadrada de nuestro número es ', raiz_numero1) 
+```
+
+La segunda manera de trabajar con una librería:
+
+**Importando la funcionalidad o funcionalidades concretas que vayamos a usar**. Recordemos que hay que conocer la librería a través de la documentación para saber que funcionalidades podemos necesitar.
+
+- Primero desde la librería elegida importamos la funcionalidad que queremos usar
+
+- Usamos la funcionalidad sin necesidad de nombrar la librería
+
+```Python
+# Importamos solo el método sqrt para calcular la raíz cuadrada de la librería math
+from math import sqrt
+
+# Definimos una variable y aplicamos la función sqrt que acabamos de imoportar
+numero2 = 49
+raiz_numero2 = sqrt(numero2)
+print(f'la raíz de nuestro numero es: ', raiz_numero2)
+```
+
+## Ventajas de las librerías:
+---
+**Reutilización de código:** Las librerías nos proporcionan funciones y clases que podemos usar en diferentes proyectos sin necesidad de volver a escribir el código desde cero. Esto ahorra tiempo y esfuerzo en el desarrollo de software.
+
+- **Facilidad de desarrollo**: Las librerías encapsulan funcionalidades complejas en funciones simples de usar, lo que facilita la implementación de tareas específicas. Esto permite a los desarrolladores concentrarse en la lógica de negocio de su aplicación en lugar de preocuparse por detalles de implementación.
+
+- **Eficiencia y rendimiento**: Las librerías están escritas y optimizadas, lo que mejora el rendimiento (es más óptimo y eficiente en comparación con implementaciones personalizadas).
+
+- **Mantenimiento simplificado**: Al utilizar librerías bien mantenidas y ampliamente utilizadas, nos beneficiamos de actualizaciones regulares, correcciones de errores y mejoras de rendimiento proporcionadas por la comunidad de código abierto.
+
+- **Escalabilidad y extensibilidad**: Las librerías nos permiten escalar nuestro código fácilmente agregando nuevas funcionalidades o integrando tecnologías adicionales.
+
+- **Documentación y soporte**: Las librerías populares suelen estar bien documentadas, lo que nos facilita su aprendizaje y uso.
+
+## Módulo datetime
+---
+La librería datetime nos permite manipular fechas y horas de una manera flexible y fácil de usar. Aunque la implementación permite operaciones aritméticas con fechas y horas, su principal objetivo es poder extraer campos de manera eficiente para su posterior manipulación o formateo.
+
+- **Clases proporcionadas**: El módulo datetime proporciona varias clases, incluyendo **datetime**, **date**, **time**, **timedelta**, y **tzinfo**.
+
+- **Operaciones con fechas y horas**: El módulo **datetime** permite realizar una variedad de operaciones con fechas y horas, como sumar y restar objetos de fecha y hora, obtener la fecha y hora actuales, formatear y analizar cadenas de fecha y hora, y manejar zonas horarias.
+
+## Módulo datetime: método datetime
+---
+Primero importamos la librería con el método **import**. Recordemos que los import deben estar al principio de nuestro archivo y solo es necesario hacer el **import** una vez.
+
+Vamos a usar el método **datetime** que nos permite usar combinaciones de **fecha** y **hora**. Recordamos que primero nombramos la librería seguida de un punto y el nombre del método que queremos usar. En este caso la librería y el método se llaman de la misma manera: **datetime**
+
+En este ejemplo, el primer datetime hace referencia al módulo, el segundo al método llamado igual y los números dentro del paréntesis, los argumentos del método, son el año, el mes, el día y la hora exacta.
+
+```Python
+import datetime
+
+# Creamos un objeto datetime con una fecha y hora específicas. Año, mes, día, hora, min, segundo)
+fecha_hora_especifica = datetime.datetime(1495, 2, 14, 12, 30, 0)
+print("Fecha y hora específica:", fecha_hora_especifica)
+# Output esperado: Fecha y hora específica: 1495-02-14 12:30:00
+```
+
+## Módulo datetime: método now
+---
+El método **now()** nos permite acceder a la fecha y hora exactas de nuestro ordenador:
+
+```Python
+# Creamos un objeto datetime con la fecha y hora actual
+fecha_hora_actual = datetime.datetime.now()
+# Primero la librería.luego el método usado. now() otro método que hace referencia a ahora mismo
+
+print("Fecha y hora actual:", fecha_hora_actual)
+```
+
+## Módulo datetime: método date
+---
+El método **date** nos permite trabajar solo con la fecha y no la hora:
+
+```Python
+# Creamos un objeto date con la fecha actual
+fecha_hoy = datetime.date.today()
+print("Fecha hoy: ", fecha_hoy)
+
+# Creamos un objeto date con una fecha concreta
+fecha_especifica = datetime.date(1495, 12, 31)
+print("Fecha específica: ", fecha_especifica)
+```
+
+## Módulo datetime: método time
+---
+Al contrario que el método date, el método **time** nos permite trabajar solo con la hora:
+
+```Python
+# Creamos un objeto time con la hora
+
+hora = datetime.time.datetime.now().time()
+print("La hora es: ", hora)
+
+hora_elegida = datetime.time(23, 14, 56)
+print("La hora concreta es: ", hora_elegida)
+```
+
+## Módulo datetime: método strftime
+---
+Podemos usar **strftime** para cambiar el formato de año, mes, día:
+
+```Python
+# Obtenemos la fecha y hora actual
+fecha_hora_actual = datetime.datetime.now()
+print("La fecha sin formatear es :", fecha_hora_actual)
+
+# Formateamos la fecha y hora en un formato específico
+fecha_hora_formateada = fecha_hora_actual.strftime("%Y-%m-%d %H:%M:%S")
+print("Fecha y hora formateada:", fecha_hora_formateada)
+
+# Formateamos solo la fecha en otro formato
+fecha_formateada = fecha_hora_actual.date().strftime("%d/%m/%Y")
+print("Fecha formateada:", fecha_formateada)
+
+# Formateamos solo la hora en otro formato
+hora_formateada = fecha_hora_actual.time().strftime("%H:%M:%S")
+print("Hora formateada:", hora_formateada)
+```
+
+## Módulo datetime: método timedelta
+---
+Podemos usar timedelta para calcular fechas:
+
+```Python
+# Obtenemos la fecha actual
+fecha_actual = datetime.date.today()
+print("Fecha y hora actual:", fecha_hora_actual)
+
+# Calculamos la fecha de hace una semana
+fecha_hace_una_semana = fecha_actual - datetime.timedelta(days=7)
+print("Fecha de hace una semana:", fecha_hace_una_semana)
+
+# Calculamos la fecha de dentro de tres meses
+fecha_dentro_de_tres_meses = fecha_actual + datetime.timedelta(days=90)
+print("Fecha de dentro de tres meses:", fecha_dentro_de_tres_meses)
+```
+
+Aparte de estas funcionalidades existen muchas otras que podéis encontrar en la documentación oficial que tenéis en este [link](https://docs.python.org/3/library/datetime.html).
+
+## Módulo os
+---
+El módulo **os** en Python nos proporciona funciones para interactuar con el sistema operativo en el que se ejecuta Python. Podemos realizar tareas como manipulación de archivos y directorios, obtener información sobre el entorno del sistema, manipular rutas de archivos, entre otros.
+
+Recordamos que antes de empezar a usar un módulo importamos la librería o **os**. Recordemos que los import deben estar al principio de nuestro archivo y solo es necesario hacer el **import** una vez.
+
+```python
+import os
+```
+
+## Módulo os: método open() y close()
+---
+Podemos abrir un archivo en bajo nivel con el método **open()**, lo cual devuelve un descriptor de archivo. Este descriptor lo utilizamos para operaciones como leer o escribir.
+
+Para cerrarlo usaremos el método **close()**.
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar
+
+```python
+# Abre el archivo 'archivo.txt'
+archivo_abrir = os.open('archivo.txt')
+print("Descriptor de archivo:", archivo_abrir)
+
+# Cierra el archivo después de la operación
+os.close(archivo_abrir)
+```
+
+## Módulo os: método read() y decode()
+---
+Podemos leer el contenido de un archivo abierto en bajo nivel utilizando el descriptor y el método **os.read()**. Este método lee n bytes del archivo, para convertir es bytes a a una cadena de texto usaremos el método **decode()**
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar
+
+```python
+# Abrimos el archivo 'archivo.txt'
+archivo_leer = os.open('archivo.txt')
+
+# Leemos los primeros 100 bytes del archivo
+lectura = os.read(archivo_leer, 100)
+print("Contenido leído:", lectura.decode())
+
+# Cerramos el archivo después de la operación
+os.close(fd)
+```
+
+## Módulo os: método getcwd()
+---
+El método getcwd() nos permite acceder al directorio de trabajo actual:
+
+```python
+directorio_actual = os.getcwd()
+print("Directorio de trabajo actual:", directorio_actual)
+```
+
+## Módulo os: método chdir()
+---
+El método **chdir()** nos permite cambiar el directorio de trabajo:
+
+📍En el ejemplo es importante cambiar el string de la variable nuevo_directorio por una ruta existente en tu ordenador.
+
+```python
+# Cambiar al directorio especificado
+nuevo_directorio = '/ruta/al/nuevo/directorio'
+os.chdir(nuevo_directorio)
+
+# Verificar el cambio
+print("Nuevo directorio de trabajo:", os.getcwd())
+```
+
+## Módulo os: método listdir()
+---
+Mediante el método **listdir()** podemos listar los archivos y directorios en un directorio específico:
+
+📍En el ejemplo es importante cambiar el string de la variable nuevo_directorio por una ruta existente en tu ordenador.
+
+```python
+directorio = '/ruta/al/directorio'
+archivos_y_directorios = os.listdir(directorio)
+print("Archivos y directorios en", directorio, ":", archivos_y_directorios)
+```
+
+## Módulo os: método mkdir()
+---
+El método **mkdir()** para crear un nuevo directorio en una ruta especificada:
+
+```python
+nuevo_directorio = '/ruta/al/nuevo/directorio'
+os.mkdir(nuevo_directorio)
+```
+
+## Módulo os: método remove()
+---
+Al contrario que e método anterior, podemos eliminar un archivo indicando su nombre, y su ruta si fuera necesario, usando el método **remove()**.
+
+```python
+archivo_a_eliminar = 'archivo_a_eliminar.txt'
+os.remove(archivo_a_eliminar)
+```
+
+## Módulo os: método rmdir()
+---
+Si queremos eliminar un directorio, una carpeta, podemos usar el método **rmdir()**
+
+```python
+directorio_a_eliminar = '/ruta/al/directorio_a_eliminar'
+os.rmdir(directorio_a_eliminar)
+```
+
+## Módulo os: método path.exists()
+---
+Usaremos este método para verificar si un archivo existe. Podemos añadir un bloque if para mostrar un mensaje si existe o si no existe:
+```python
+archivo_o_directorio = '/ruta/al/archivo_o_directorio'
+if os.path.exists(archivo_o_directorio):
+    print(archivo_o_directorio, "existe")
+else:
+    print(archivo_o_directorio, "no existe")
+```
+
+## Módulo os: método path.join()
+---
+Podemos unir partes de rutas de archivos con el método **path.join()**. Esto nos permite crear rutas completas.
+
+```python
+ruta_base = '/ruta/base'
+archivo = 'archivo.txt'
+ruta_completa = os.path.join(ruta_base, archivo)
+print("Ruta completa:", ruta_completa)
+```
+
+Aparte de estas funcionalidades existen muchas otras que podéis encontrar en la documentación oficial que tenéis en este [link](https://docs.python.org/3/library/os.html).
+
+## Manejo de ficheros
+---
+En Python, trabajar con ficheros es una tarea común. En esta unidad didáctica, veremos algunos detalles sobre cómo se puede trabajar con ficheros en Python. Algunas funciones son muy similares a las vistas en el módulo **os**.
+
+## Manejo de ficheros: abrir un fichero
+---
+Podemos usar la función **open()** para abrir un fichero. Esta función devuelve un objeto fichero que puedes usar para leer, escribir y manipular más tarde.
+
+En este ejemplo estamos pasando como argumentos de la función open(), la ruta de un archivo txt y el segundo argumento, la "r" , abre el fichero en modo lectura.
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar
+
+```python
+# Abrimos el fichero 'mi_fichero.txt' en modo de lectura
+fichero_abrir = open('mi_fichero.txt', 'r')
+```
+
+## Manejo de ficheros: leer un fichero
+---
+Usamos el método **read()** para leer todo el contenido de un fichero. Si queremos leer solo una línea usamos el método **readline()**.
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar
+
+```python
+# Abrimos el fichero 'mi_fichero.txt' en modo de lectura
+fichero_abrir = open('mi_fichero.txt', 'r')
+# Leemos todo el contenido del fichero
+contenido = fichero_abrir.read()
+# Lee una línea del fichero
+linea = fichero_abrir.readline()
+```
+
+## Manejo de ficheros: escribir en un fichero
+---
+Usamos el método **write()** para escribir en un fichero. Recuerda abrir el fichero en modo de escritura (w) o en modo de añadir (a) en vez de en modo lectura(r) como hasta ahora.
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar
+
+```python
+# Abrimos el fichero 'mi_fichero.txt' en modo de escritura
+fichero_escritura = open('mi_fichero.txt', 'w')
+
+# Escribimos en el fichero
+fichero_escritura.write("Hola, mundo!")
+```
+
+## Manejo de ficheros: cerrar un fichero
+---
+Usamos el método **close()** para cerrar un fichero. Es importante cerrar los ficheros después de usarlos para liberar recursos del sistema.
+
+📍 Recuerda cambiar los argumentos por el nombre del archivo con el que vayas a trabajar.
+
+```python
+# Abrimos un archivo con la función open
+file = open('mi_fichero.txt', 'w)
+# Cerramos el fichero
+file.close()
+```

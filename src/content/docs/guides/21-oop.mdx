@@ -1,0 +1,253 @@
+---
+title: "Programación orientada a objetos: OOP"
+---
+La programación orientada ( Object Oriented Programing )a objetos nos permite estructurar los programas de tal manera que podamos agrupar ciertas propiedades y comportamientos en objetos individuales.
+
+Un objeto individual es una replica de un objeto del mundo real, como un mueble, que tiene propiedades, como el color, la forma, el número de puertas y comportamientos propios, abrir puertas.
+
+La programación orientada a objetos modela las entidades del mundo real como objetos de software que tienen algunos datos asociados y pueden realizar ciertas funciones.
+
+## Conceptos básicos:
+---
+- **Clase**: es un esquema o plantilla a partir de la cual se crearán objetos. Define las características comunes que tendrán los objetos que derivan de ella. Es como un modelo que establece qué atributos (características) y métodos (comportamientos) tendrá un objeto.
+Podemos tener una clase llamada Empleado. Esta clase podría definir que todos los empleados tienen un nombre, una posición y un salario.
+
+- **Atributos**: son las características que tendrá cada objeto de una clase.
+En el ejemplo de la clase Empleado, los atributos son nombre, posicion y salario. Cada objeto (empleado) tendrá valores específicos para estos atributos.
+
+- **Métodos**: on las funciones que puede realizar una clase. Representan las acciones que un objeto puede llevar a cabo o las operaciones que pueden realizarse sobre él. Los métodos permiten a los objetos interactuar con sus propios atributos o realizar acciones relacionadas con ellos.
+La clase Empleado puede tener un método que imprima los detalles de un empleado.
+
+- **Objeto** o **Instancia** es una entidad individual creada a partir de una clase. Cada objeto tendrá sus propios valores para los atributos definidos en la clase.
+Por ejemplo, un objeto de la clase Empleado sería un empleado en particular, como "Ana", con su propio nombre, posición y salario.
+
+📌 Por convención, para que sepamos que se están trabajando con Clases, estas serán nombradas con la primera letra en mayúsculas.
+
+## Construir una clase e instanciar un objeto
+---
+Para crear una clase usaremos la palabra reservada:
+
+```python
+# Palabra reservada para las clases:
+class Empleado
+```
+
+## Atributos y método constructor
+---
+Lo primero que hacemos es definir las propiedades de nuestra clase, es decir los **atributos**. Todos los **atributos** deben estar definidos en un método llamado método **constructor**
+
+El método constructor se encuentra dentro de la clase y tiene por parámetros las características que tendrá nuestra clase siguiendo esta sintaxis:
+
+```python
+class NombreClase:
+
+	def __init__ (self, atributo1, atributo2, atributo3)
+
+# Donde de __init__ es el método constructor
+# self es el primer parámetro
+# los atributos son las propiedades que queremos que tenga nuestra clase
+```
+
+Vemos un ejemplo con una clase llamada **Empleado**:
+
+```python
+class Empleado:
+    """
+    Clase que representa a un empleado en una empresa.
+    """
+
+    def __init__(self, nombre, edad, posicion, salario):
+        """
+        Constructor de la clase Empleado.
+
+        Args:
+            nombre (str): El nombre del empleado.
+            edad (int): La edad del empleado.
+            posicion (str): La posición del empleado.
+            salario (float): El salario del empleado.
+        """
+        # Creamos atributos y asignamos el valor de los parámetros del método constructor
+        self.nombre = nombre
+        self.edad = edad
+        self.posicion = posicion
+        self.salario = salario
+```
+
+## Instanciar un objeto
+---
+Para instanciar un objeto de una clase que hayamos creado tenemos que seguir la siguiente sintaxis:
+
+```python
+objeto = NombreClase(atributo1, atributo2, atributo3)
+# Donde NombreClase es el nombre de nuestra clase
+# Y los atributos son las propiedades recogidas en el método constructor
+```
+
+Vemos un ejemplo con un objeto llamado juan de la clase **Empleado**, donde:
+
+**"Juan"** hace referencia al atributo nombre.
+
+**30** al atributo edad.
+
+**"Gerente"** al atributo posicion.
+
+**50000** al atributo salario.
+
+```python
+# Instanciamos un nuevo objeto(creamos un nuevo empleado)
+juan = Empleado("Juan", 30, "Gerente", 50000)
+```
+
+Una vez instanciado nuestro primer objeto, **juan**, podemos acceder a sus atributos de la siguientes manera:
+
+- objeto.atributo: para acceder a un solo atributo, donde objeto sería **juan** y atributo sería uno de nuestros atriburos, como salario o posición.
+
+- objeto.**dict**: para acceder a todos los atributos de nuestro objeto.
+
+```python
+# Mostramos por terminal los atributos de nuestro objeto juan
+print(f"La posición de Juan es: {juan.posicion}")
+print(f"Todos los atributos de Juan son: {juan.__dict__}")
+```
+
+## Métodos de una clase
+---
+Una vez tengamos el método constructor definimos las acciones que queremos que tenga nuestra clase, es decir, sus métodos propios. Los métodos aparecen a continuación del método constructor. Por ejemplo un método que sirva para subir el salario según un porcentaje:
+
+```python
+def subir_salario(self, porcentaje):
+        """
+        Método para aumentar el salario del empleado en un cierto porcentaje.
+
+        Args:
+            porcentaje (float): El porcentaje de aumento del salario.
+        """
+        # Calcula el nuevo salario aumentado por el porcentaje dado
+        self.salario *= (1 + porcentaje / 100)
+        # Redondea el salario a dos decimales
+        self.salario = round(self.salario, 2)
+        # Muestra un mensaje indicando que el salario ha subido y cuál es el nuevo salario
+        print(f"¡El salario de {self.nombre} ha subido! Nuevo salario: {self.salario:.2f}")
+```
+
+Para usar este método en nuestro objeto **juan**, tendremos que llamar al método, donde:
+
+**juan** es el objeto que hemos instanciado previamente.
+
+**subir_salario()** es el método que acabamos de crear.
+
+**10** es el porcentaje del salario que va a subirse.
+
+```python
+# Subimos el salario del empleado en un 10%
+juan.subir_salario(10)
+
+# Output esperado:
+# ¡El salario de Juan ha subido! Nuevo salario: 55000.00
+```
+
+## Herencia
+---
+La herencia dentro de programación nos permite crear nuevas clases que tengan atributos y métodos de otras clases que ya hemos definido anteriormente
+
+La primera clase que creamos será la clase **madre** o **superclase** o ***parent***. La clase que hereda, es decir, que recibe atributos y métodos de la primera será la clase **hija** o **subclase** o ***child***.
+
+En las clases hijas podemos cambiar los atributos y métodos heredadas y también incorporar otros nuevos que serán exclusivos de ellas mismas y que no tendrá la clase madre.
+
+Vamos a ver un ejemplo con productos. Podemos tener una clase madre que se lllame **Producto**, que tenga un método constructor con sus atributos y un método **impuestos** para calcular el precio con IVA**:**
+
+```python
+class Producto:
+    """
+    Clase que representa un producto para la venta.
+    """
+
+    def __init__(self, nombre, precio, plataforma_venta, IVA):
+        """
+        Constructor de la clase Producto.
+
+        Args:
+            nombre (str): El nombre del producto.
+            precio (float): El precio del producto.
+            plataforma_venta (str): La plataforma de venta del producto.
+        """
+        self.nombre = nombre
+        self.precio = precio
+        self.plataforma_venta = plataforma_venta
+        self.IVA = IVA
+
+    def impuestos(self):
+        """
+        Método para calcular los impuestos sobre el precio del producto.
+
+        Returns:
+            float: La cantidad de impuestos a pagar.
+        """
+        return self.precio * self.IVA
+```
+
+Podemos tener una clase hija de la clase **Producto**, por ejemplo la clase **Electrodomestico**. Esta clase va a heredar los atributos y los métodos de la clase madre y va a añadir dos atributos nuevos: **certificado_energetico** y un método propio que sea **evaluar_certificado**.
+
+```python
+class Electrodomestico(Producto):
+    """
+    Clase que representa un electrodoméstico como un tipo de producto.
+    """
+
+    def __init__(self, nombre, precio, plataforma_venta, IVA, certificado_energetico):
+        """
+        Constructor de la clase Electrodomestico.
+
+        Args:
+            nombre (str): El nombre del electrodoméstico.
+            precio (float): El precio del electrodoméstico.
+            plataforma_venta (str): La plataforma de venta del electrodoméstico.
+            marca (str): La marca del electrodoméstico.
+            consumo_energetico (str): El nivel de consumo energético del electrodoméstico.
+        """
+        # Llama al constructor de la clase madre
+        super().__init__(nombre, precio, plataforma_venta, IVA)
+
+        # Añadimos los argumentos específicos de la clase hija
+        self. certificado_energetico = certificado_energetico
+
+    def evaluar_certificado(self):
+
+        if self.certificado_energetico == "F":
+            print(f"El producto {self.nombre} tiene un certificado energético deficiente")
+```
+
+Podemos ponerlo en práctica instanciando un objeto de la clase **Electrodomestico**:
+
+```python
+lavadora = Electrodomestico("lavadora siemens", 678, "online", 0.21, "F")
+print(lavadora.nombre)
+lavadora.evaluar_certificado()
+# Output esperado:
+#lavadora siemens
+#El producto lavadora siemens tiene un certificado energético deficiente
+```
+
+## Polimorfismo
+---
+El polimorfismo es un concepto que se refiere a la capacidad de distintos objetos de una jerarquía de clases de responder a una misma acción de diferentes maneras, es decir, que podemos tener un método que se llame igual dentro de distintas clases pero que se comporte de una manera para cada una de esas clases.
+
+Por ejemplo podemos tener el método **precio_iva**, de la clase madre **Producto**, que calcule el precio aplicando el IVA:
+
+```python
+class Producto:
+        #...
+        def precio_iva(self):
+                return self.precio * (1 + self.IVA)
+```
+
+Y queremos que aquellos productos que sean **electrodomésticos** se calcule ese precio con IVA pero restandole 100. Lo ´único que tendríamos que hacer es crear un método **precio_iva** en la clase **Electrodomesticos** que contemple esta resta:
+
+```python
+class Electrodomestico(Producto):
+        #...
+        def precio_iva(self):
+                return self.precio * (1 + self.IVA) - 100
+```
+
+El método **precio_iva** se llama de la misma manera en ambas clases pero tiene un comportamiento distinto. 

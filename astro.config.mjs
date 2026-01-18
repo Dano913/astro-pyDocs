@@ -28,6 +28,12 @@ export default defineConfig({
 						{ label: 'Condicionales', slug: 'guides/14-condicionales' },
 						{ label: 'Estructuras de iteración: Bucle for en listas, tuplas y sets', slug: 'guides/15-iteracion-lista-tupla-set' },
 						{ label: 'Estructuras de iteración: Bucles for en diccionarios', slug: 'guides/16-iteracion-diccionario' },
+						{ label: 'Funciones incorporadas', slug: 'guides/17-funciones-incorporadas' },
+						{ label: 'List Comprehension', slug: 'guides/18-list-comprehension' },
+						{ label: 'Control de flujo (break, continue, pass)', slug: 'guides/19-control-flow' },
+						{ label: 'Funciones en Python', slug: 'guides/20-funciones' },
+						{ label: 'Programación Orientada a Objetos (OOP)', slug: 'guides/21-oop' },
+						{ label: 'Librerías y módulos', slug: 'guides/22-librerias-modulos' },
 					],
 				},
 				{
